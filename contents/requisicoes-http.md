@@ -122,6 +122,68 @@ app.listen(3000, () => {
 - **🧩 Insomnia**: Alternativa ao Postman, com interface limpa
 - **🦊 Extensões de navegador**: Como REST Client para VS Code
 
+### 🔹 Usando o cURL
+O cURL (Client URL) é uma poderosa ferramenta de linha de comando amplamente utilizada para testar APIs e transferir dados por diversos protocolos. 
+
+#### Principais funcionalidades do cURL:
+- 📡 Fazer requisições HTTP/HTTPS (GET, POST, PUT, DELETE, etc.)
+- 📦 Enviar dados para um servidor (exemplo: envio de JSON para uma API)
+- 📥 Baixar arquivos da internet
+- 🔐 Suporta autenticação (usuário e senha, tokens, OAuth)
+- 📝 Manipulação de cabeçalhos HTTP e cookies
+- 🔄 Suporte a proxies
+
+#### Exemplos práticos:
+
+**Requisição GET básica:**
+```bash
+curl https://api.exemplo.com/usuarios
+```
+
+**Requisição GET salvando o resultado em um arquivo:**
+```bash
+curl -o usuarios.json https://api.exemplo.com/usuarios
+```
+
+**Requisição POST enviando dados JSON:**
+```bash
+curl -X POST https://api.exemplo.com/usuarios \
+  -H "Content-Type: application/json" \
+  -d '{"nome": "João Silva", "email": "joao@exemplo.com"}'
+```
+
+**Requisição PUT para atualizar um recurso:**
+```bash
+curl -X PUT https://api.exemplo.com/usuarios/123 \
+  -H "Content-Type: application/json" \
+  -d '{"nome": "João Silva", "email": "joao.novo@exemplo.com"}'
+```
+
+**Requisição DELETE:**
+```bash
+curl -X DELETE https://api.exemplo.com/usuarios/123
+```
+
+**Adicionando cabeçalhos de autenticação:**
+```bash
+curl https://api.exemplo.com/dados-privados \
+  -H "Authorization: Bearer seu_token_aqui"
+```
+
+**Visualizando cabeçalhos da resposta:**
+```bash
+curl -I https://api.exemplo.com/usuarios
+```
+
+**Usando formulários:**
+```bash
+curl -X POST https://api.exemplo.com/upload \
+  -F "arquivo=@documento.pdf" \
+  -F "descricao=Relatório mensal"
+```
+
+O cURL é especialmente útil para testar APIs, automatizar tarefas e fazer requisições HTTP complexas diretamente do terminal, sendo uma ferramenta essencial para desenvolvedores Node.js.
+
 ---
 
 [🔙 Voltar ao índice principal](../README.md)
