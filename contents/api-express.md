@@ -249,18 +249,126 @@ module.exports = app;
 
 ## 🧰 Ferramentas úteis para Express
 
-### 🔄 Nodemon para desenvolvimento
+### 🔄 Nodemon: Desenvolvimento com Auto-Reload
+
+#### 📦 Instalação e Configuração
 ```bash
+# Instalação global
+npm install -g nodemon
+
+# Instalação local (recomendado)
 npm install nodemon --save-dev
 ```
 
-Atualizar o package.json:
+#### 📝 Configuração no package.json
 ```json
-"scripts": {
-  "start": "node server.js",
-  "dev": "nodemon server.js"
+{
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "debug": "nodemon --inspect server.js"
+  }
 }
 ```
+
+#### ⚙️ Configuração Avançada (nodemon.json)
+```json
+{
+  "watch": [
+    "src/",
+    "config/"
+  ],
+  "ext": "js,json,yaml,env",
+  "ignore": [
+    "src/logs/*",
+    "src/tests/*",
+    "src/**/*.test.js"
+  ],
+  "env": {
+    "NODE_ENV": "development",
+    "PORT": "3000"
+  },
+  "execMap": {
+    "js": "node --trace-warnings",
+    "ts": "ts-node"
+  },
+  "delay": "1500"
+}
+```
+
+#### 🔍 Opções Comuns
+- **watch**: Lista de diretórios para monitorar
+- **ext**: Extensões de arquivo para monitorar
+- **ignore**: Arquivos/diretórios para ignorar
+- **delay**: Atraso antes de reiniciar (em ms)
+- **exec**: Comando personalizado para execução
+- **env**: Variáveis de ambiente
+
+#### 📋 Exemplos de Uso
+
+##### 🔹 Executando com TypeScript
+```bash
+nodemon --exec ts-node ./src/server.ts
+```
+
+##### 🔹 Com variáveis de ambiente
+```bash
+nodemon -r dotenv/config server.js
+```
+
+##### 🔹 Com argumentos específicos
+```bash
+nodemon --watch src --ignore tests/ server.js
+```
+
+##### 🔧 Comandos Úteis Durante Execução
+- **rs**: Reinicia manualmente o servidor
+- **CTRL + C**: Para o servidor
+- **clear**: Limpa o console
+
+##### 🚫 Problemas Comuns e Soluções
+
+###### 🔸 Reinícios em Loop
+```json
+{
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "*.test.js"
+  ]
+}
+```
+
+###### 🔸 Arquivos Temporários
+```json
+{
+  "ignore": [
+    "*.tmp",
+    "temp/*"
+  ]
+}
+```
+
+###### 🔸 Problemas com Memória
+```bash
+nodemon --max-old-space-size=4096 server.js
+```
+
+###### 🔹 Integração com Debugger
+```json
+{
+  "scripts": {
+    "debug": "nodemon --inspect server.js"
+  }
+}
+```
+
+#### 📝 Boas Práticas
+1. **Instale localmente**: Evite instalações globais
+2. **Use scripts npm**: Configure no package.json
+3. **Configure ignore**: Evite monitorar arquivos desnecessários
+4. **Defina extensões**: Especifique apenas as necessárias
+5. **Use delay**: Em projetos grandes para evitar múltiplos reloads
 
 ### 📝 Validação de dados com express-validator
 ```bash

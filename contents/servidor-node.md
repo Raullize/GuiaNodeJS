@@ -425,6 +425,70 @@ HTML do cliente:
 - **⚠️ Ignorar tratamento de exceções** que podem derrubar o servidor
 - **🛑 Usar operações síncronas** em rotas de alta demanda
 
+## 📂 Trabalhando com __dirname e __filename
+
+### 🔍 O que são?
+- **__dirname**: Variável global que contém o caminho absoluto do diretório do arquivo atual
+- **__filename**: Variável global que contém o caminho absoluto completo do arquivo atual
+
+### 📝 Exemplos de uso
+
+```javascript
+const path = require('path');
+
+// Imprimindo os valores
+console.log('__dirname:', __dirname);
+console.log('__filename:', __filename);
+
+// Construindo caminhos de arquivos
+const configPath = path.join(__dirname, 'config', 'database.js');
+const uploadsDir = path.join(__dirname, '..', 'uploads');
+const publicDir = path.join(__dirname, 'public');
+
+// Servindo arquivos estáticos com Express
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Lendo um arquivo de configuração
+const config = require(path.join(__dirname, 'config.json'));
+
+// Criando diretórios
+const fs = require('fs');
+const logsDir = path.join(__dirname, 'logs');
+if (!fs.existsSync(logsDir)) {
+    fs.mkdirSync(logsDir);
+}
+
+// Resolvendo caminhos relativos
+const relativePath = path.relative(__dirname, '/var/www/html');
+console.log('Caminho relativo:', relativePath);
+
+// Usando em rotas para servir arquivos
+app.get('/download', (req, res) => {
+    const file = path.join(__dirname, 'files', 'documento.pdf');
+    res.download(file);
+});
+
+// Em configurações de template engine
+app.set('views', path.join(__dirname, 'views'));
+```
+
+### 🔹 Boas Práticas
+1. **Sempre use path.join()**: Para garantir compatibilidade entre sistemas operacionais
+2. **Evite concatenação de strings**: Não use `__dirname + '/arquivo'`
+3. **Considere caminhos relativos**: Use `path.relative()` quando necessário
+4. **Organize arquivos estáticos**: Use uma estrutura clara de diretórios
+5. **Verifique existência**: Sempre verifique se arquivos/diretórios existem antes de usá-los
+
+### 🚫 Práticas a Evitar
+```javascript
+// ❌ Não faça isso
+const badPath = __dirname + '/config/database.js';
+const wrongPath = __dirname + '\\config\\database.js';
+
+// ✅ Faça isso
+const goodPath = path.join(__dirname, 'config', 'database.js');
+```
+
 ---
 
 [🔙 Voltar ao índice principal](../README.md)

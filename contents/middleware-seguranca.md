@@ -233,28 +233,203 @@ app.use(
 );
 ```
 
-### 🔒 CORS - Controle de Acesso Cross-Origin
-Protege contra requisições maliciosas de outros domínios.
+### 🌐 CORS (Cross-Origin Resource Sharing)
 
+### 🤔 O que é CORS?
+CORS é um mecanismo de segurança que permite que recursos restritos em uma página web sejam acessados por outro domínio fora do domínio ao qual pertence o recurso.
+
+### 📦 Instalação
 ```bash
 npm install cors
 ```
 
+### 🔧 Configurações Básicas
+
+#### 🔹 Permitir Todos os Domínios (Não recomendado para produção)
 ```javascript
-const express = require('express');
 const cors = require('cors');
-const app = express();
-
-// Configuração básica (permitir todos os domínios - NÃO recomendado para produção)
 app.use(cors());
+```
 
-// Configuração segura para produção
-app.use(cors({
-  origin: ['https://meuapp.com', 'https://admin.meuapp.com'],
+#### 🔹 Configuração com Opções Específicas
+```javascript
+const corsOptions = {
+  origin: 'https://meuapp.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  exposedHeaders: ['X-Total-Count'],
+  credentials: true,
+  maxAge: 3600
+};
+
+app.use(cors(corsOptions));
+```
+
+### 📋 Exemplos de Configurações
+
+#### 🔸 Múltiplos Domínios
+```javascript
+const corsOptions = {
+  origin: [
+    'https://meuapp.com',
+    'https://admin.meuapp.com',
+    'https://api.meuapp.com'
+  ],
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+```
+
+#### 🔸 Função de Validação de Origem
+```javascript
+const corsOptions = {
+  origin: function (origin, callback) {
+    const dominiosPermitidos = [
+      'https://meuapp.com',
+      'https://admin.meuapp.com'
+    ];
+    
+    if (dominiosPermitidos.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Bloqueado pelo CORS'));
+    }
+  }
+};
+
+app.use(cors(corsOptions));
+```
+
+#### 🔸 Configuração por Rota
+```javascript
+// Rota sem CORS
+app.get('/api/publica', (req, res) => {
+  res.json({ mensagem: 'Endpoint público' });
+});
+
+// Rota com CORS específico
+app.get('/api/privada', cors(corsOptions), (req, res) => {
+  res.json({ mensagem: 'Endpoint privado' });
+});
+```
+
+### 🔒 Configurações de Segurança
+
+#### 🔹 Produção
+```javascript
+const corsOptions = {
+  origin: process.env.ALLOWED_ORIGINS.split(','),
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  maxAge: 3600,
+  optionsSuccessStatus: 204,
+  preflightContinue: false
+};
+
+app.use(cors(corsOptions));
+```
+
+#### 🔹 Desenvolvimento
+```javascript
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: '*',
+  allowedHeaders: '*',
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(cors(corsOptions));
+}
+```
+
+### 🚫 Tratamento de Erros CORS
+```javascript
+app.use((err, req, res, next) => {
+  if (err.message === 'Bloqueado pelo CORS') {
+    res.status(403).json({
+      erro: 'Acesso não permitido para esta origem'
+    });
+  } else {
+    next(err);
+  }
+});
+```
+
+### 📝 Boas Práticas
+1. **Nunca use `cors()` sem opções em produção**
+2. **Sempre especifique origens permitidas**
+3. **Use variáveis de ambiente para configurações**
+4. **Implemente logs para requisições bloqueadas**
+5. **Configure headers adequadamente**
+6. **Use HTTPS em produção**
+
+### 🔍 Headers CORS Importantes
+```javascript
+const corsOptions = {
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'X-Requested-With',
+    'Accept',
+    'Origin'
+  ],
+  exposedHeaders: [
+    'X-Total-Count',
+    'Content-Range',
+    'X-Content-Range'
+  ],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  credentials: true
+};
+```
+
+### 🌍 Exemplos de Casos de Uso
+
+#### 🔸 API Pública
+```javascript
+app.use(cors({
+  origin: '*',
+  methods: ['GET'],
+  maxAge: 86400
+}));
+```
+
+#### 🔸 API com Autenticação
+```javascript
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+```
+
+#### 🔸 API com Múltiplos Clientes
+```javascript
+const clientes = new Map([
+  ['cliente1', { origin: 'https://cliente1.com', methods: ['GET', 'POST'] }],
+  ['cliente2', { origin: 'https://cliente2.com', methods: ['GET'] }]
+]);
+
+app.use((req, res, next) => {
+  const clienteId = req.headers['x-client-id'];
+  const cliente = clientes.get(clienteId);
+  
+  if (cliente) {
+    cors({
+      origin: cliente.origin,
+      methods: cliente.methods
+    })(req, res, next);
+  } else {
+    res.status(403).json({ erro: 'Cliente não autorizado' });
+  }
+});
 ```
 
 ### 🔐 Express-Rate-Limit - Proteção contra Ataques de Força Bruta
