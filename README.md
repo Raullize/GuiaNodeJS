@@ -20,7 +20,8 @@ Bem-vindo ao **GuiaNodeJS**, um recurso prático e abrangente para aprender sobr
 12. [🔐 Middleware e Segurança](contents/middleware-seguranca.md)
 13. [🗄️ Conectando ao Banco de Dados](contents/banco-dados.md)
 14. [📌 Autenticação e Autorização](contents/autenticacao.md)
-15. [🚀 Deploy de Aplicações Node.js](contents/deploy.md)
+15. [✨ Clean Code em Node.js](contents/clean-code-nodejs.md)
+16. [🚀 Deploy de Aplicações Node.js](contents/deploy.md)
 
 ---
 
