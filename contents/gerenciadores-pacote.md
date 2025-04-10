@@ -44,6 +44,71 @@ O npm é o gerenciador de pacotes padrão que vem instalado com o Node.js.
 }
 ```
 
+### ⚡ Diferença entre `npm` e `npx`
+
+A diferença entre `npm` e `npx` pode ser explicada de forma simples e direta, mas também com os detalhes técnicos para entender bem cada um:
+
+### 📦 `npm` (Node Package Manager)
+
+- **O que é?**  
+  É o gerenciador de pacotes do Node.js. Usado para instalar pacotes (bibliotecas, frameworks, etc.) no seu projeto ou globalmente.
+
+- **Exemplos de uso:**
+  - Instalar um pacote localmente:  
+    ```bash
+    npm install lodash
+    ```
+  - Instalar um pacote globalmente:  
+    ```bash
+    npm install -g typescript
+    ```
+  - Rodar scripts definidos no `package.json`:  
+    ```bash
+    npm run build
+    ```
+
+### ⚡ `npx` (Node Package Execute)
+
+- **O que é?**  
+  Um executor de pacotes. Foi introduzido com o `npm` v5.2+ e permite **executar pacotes sem precisar instalá-los manualmente**.
+
+- **Para que serve?**
+  - Rodar um pacote que está no `node_modules` sem criar scripts no `package.json`.
+  - Executar pacotes diretamente da internet (sem instalar).
+  - Usar versões específicas de ferramentas sem conflito com instalações globais.
+
+- **Exemplos de uso:**
+  - Rodar um pacote sem instalar:
+    ```bash
+    npx create-react-app my-app
+    ```
+  - Rodar um script do projeto:
+    ```bash
+    npx eslint src/
+    ```
+
+### 📊 Comparação Rápida
+
+| Característica         | `npm`                                 | `npx`                                 |
+|------------------------|----------------------------------------|----------------------------------------|
+| Instala pacotes        | Sim                                     | Não (só executa)                        |
+| Executa binários       | Indiretamente (`npm run script`)       | Diretamente (`npx nome-do-pacote`)     |
+| Requer instalação prévia | Sim, precisa do pacote instalado        | Não necessariamente                    |
+| Ideal para             | Gerenciar dependências                 | Executar ferramentas/CLI pontuais      |
+
+### 💡 Exemplo Prático
+
+- Com `npm`:
+  ```bash
+  npm install typescript
+  npx tsc --init
+  ```
+- Com `npx` apenas:
+  ```bash
+  npx typescript --init
+  ```
+
+
 ### 🧶 Yarn
 Yarn é uma alternativa ao npm, conhecido por seu melhor desempenho e confiabilidade.
 

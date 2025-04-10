@@ -2,8 +2,6 @@
 
 # 🏗️ Estruturando Projetos Node.js de Forma Profissional
 
-## 🎯 Introdução
-
 Este guia apresenta as melhores práticas e ferramentas essenciais para estruturar projetos Node.js de forma profissional, garantindo qualidade, manutenibilidade e escalabilidade.
 
 ## 📦 Gerenciamento de Dependências com NPM
