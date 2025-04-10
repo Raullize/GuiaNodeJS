@@ -22,6 +22,7 @@ Bem-vindo ao **GuiaNodeJS**, um recurso prático e abrangente para aprender sobr
 14. [📌 Autenticação e Autorização](contents/autenticacao.md)
 15. [✨ Clean Code em Node.js](contents/clean-code-nodejs.md)
 16. [🚀 Deploy de Aplicações Node.js](contents/deploy.md)
+17. [🏗️ Estruturando Projetos Node.js de Forma Profissional](contents/estrutura-projeto-profissional.md)
 
 ---
 
