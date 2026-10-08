@@ -1,21 +1,21 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🚀 Deploy de Aplicações Node.js
+# Deploy de Aplicações Node.js
 
-## 🤔 O que é Deploy?
+## O que é Deploy?
 Deploy é o processo de colocar uma aplicação em produção, tornando-a disponível para os usuários finais. Envolve transferir o código da aplicação para um servidor e configurá-lo para execução.
 
-## 📋 Preparação para o Deploy
+## Preparação para o Deploy
 
-### 🔍 Checklist antes do Deploy
-1. **🧹 Limpar código**: Remover consoles.log desnecessários, comentários de desenvolvimento
-2. **🧪 Testes**: Executar testes automatizados para garantir funcionamento
-3. **🔒 Variáveis de ambiente**: Configurar corretamente para o ambiente de produção
-4. **📊 Logs**: Implementar sistema de logging adequado
-5. **⚙️ Scripts de inicialização**: Garantir que scripts de start estejam configurados corretamente
-6. **🛠️ Dependências**: Verificar se todas as dependências estão atualizadas e seguras
+### Checklist antes do Deploy
+1. **Limpar código**: Remover consoles.log desnecessários, comentários de desenvolvimento
+2. **Testes**: Executar testes automatizados para garantir funcionamento
+3. **Variáveis de ambiente**: Configurar corretamente para o ambiente de produção
+4. **Logs**: Implementar sistema de logging adequado
+5. **Scripts de inicialização**: Garantir que scripts de start estejam configurados corretamente
+6. **Dependências**: Verificar se todas as dependências estão atualizadas e seguras
 
-### 📝 Arquivo package.json
+### Arquivo package.json
 ```json
 {
   "name": "minha-aplicacao",
@@ -42,7 +42,7 @@ Deploy é o processo de colocar uma aplicação em produção, tornando-a dispon
 }
 ```
 
-### 🔐 Configuração de variáveis de ambiente
+### Configuração de variáveis de ambiente
 ```javascript
 // .env.example (para desenvolvimento)
 PORT=3000
@@ -53,7 +53,7 @@ NODE_ENV=development
 // Para produção, configure as variáveis no próprio servidor ou plataforma de hospedagem
 ```
 
-### 📄 Configuração do servidor
+### Configuração do servidor
 ```javascript
 // server.js
 require('dotenv').config();
@@ -96,34 +96,34 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
 ```
 
-## 🚢 Opções de Deploy
+## Opções de Deploy
 
-### 📦 Serviços de Hospedagem em Nuvem
+### Serviços de Hospedagem em Nuvem
 
-#### 🌐 Heroku
+#### Heroku
 Plataforma como serviço (PaaS) que facilita o deploy de aplicações Node.js.
 
-**📋 Passos básicos:**
+**Passos básicos:**
 1. Instalar Heroku CLI: `npm install -g heroku`
 2. Login: `heroku login`
 3. Criar aplicação: `heroku create minha-aplicacao`
 4. Configurar variáveis de ambiente: `heroku config:set MONGODB_URI=mongodb://...`
 5. Deploy: `git push heroku main`
 
-**📄 Arquivo Procfile:**
+**Arquivo Procfile:**
 ```
 web: node server.js
 ```
 
-#### ☁️ Vercel
+#### Vercel
 Ideal para aplicações Next.js e outras frameworks front-end, mas também suporta APIs Node.js.
 
-**📋 Passos básicos:**
+**Passos básicos:**
 1. Instalar Vercel CLI: `npm install -g vercel`
 2. Login: `vercel login`
 3. Deploy: `vercel`
 
-**📄 Arquivo vercel.json:**
+**Arquivo vercel.json:**
 ```json
 {
   "version": 2,
@@ -142,42 +142,42 @@ Ideal para aplicações Next.js e outras frameworks front-end, mas também supor
 }
 ```
 
-#### 🌩️ AWS Elastic Beanstalk
+#### AWS Elastic Beanstalk
 Serviço da Amazon para implantação e dimensionamento de aplicativos web.
 
-**📋 Passos básicos:**
+**Passos básicos:**
 1. Instalar AWS EB CLI
 2. Inicializar projeto: `eb init`
 3. Criar ambiente: `eb create minha-app-producao`
 4. Deploy: `eb deploy`
 
-**📄 Arquivo .ebextensions/nodecommand.config:**
+**Arquivo .ebextensions/nodecommand.config:**
 ```yaml
 option_settings:
   aws:elasticbeanstalk:container:nodejs:
     NodeCommand: "npm start"
 ```
 
-#### 🔵 Microsoft Azure App Service
+#### Microsoft Azure App Service
 Serviço de hospedagem de aplicativos web da Microsoft.
 
-**📋 Passos básicos:**
+**Passos básicos:**
 1. Criar recurso App Service no Azure Portal
 2. Configurar integração contínua do repositório Git
 3. Configurar variáveis de ambiente nos "Configurações de Aplicativo"
 
-#### 🔍 Google Cloud Run
+#### Google Cloud Run
 Serviço totalmente gerenciado para implantar e escalar aplicações conteinerizadas.
 
-**📋 Passos básicos:**
+**Passos básicos:**
 1. Containerizar a aplicação com Docker
 2. Enviar imagem para Google Container Registry
 3. Configurar e implantar via Google Cloud Console ou CLI
 
-### 🐳 Deploy com Docker
+### Deploy com Docker
 Containerizar sua aplicação garante consistência entre ambientes.
 
-**📄 Dockerfile:**
+**Dockerfile:**
 ```Dockerfile
 FROM node:16-alpine
 
@@ -196,7 +196,7 @@ EXPOSE 3000
 CMD ["node", "server.js"]
 ```
 
-**📄 docker-compose.yml:**
+**docker-compose.yml:**
 ```yaml
 version: '3'
 
@@ -220,7 +220,7 @@ volumes:
   mongo-data:
 ```
 
-**📋 Comandos básicos:**
+**Comandos básicos:**
 ```bash
 # Construir imagem
 docker build -t minha-aplicacao-node .
@@ -232,41 +232,41 @@ docker run -p 3000:3000 -e MONGODB_URI=mongodb://... minha-aplicacao-node
 docker-compose up -d
 ```
 
-### 🖥️ VPS (Servidor Virtual Privado)
+### VPS (Servidor Virtual Privado)
 Mais flexível, mas requer configuração manual e manutenção.
 
-**📋 Provedores populares:**
+**Provedores populares:**
 - DigitalOcean
 - Linode
 - Vultr
 - AWS EC2
 
-**📊 Passos básicos para configurar um VPS:**
-1. **📥 Conectar via SSH:**
+**Passos básicos para configurar um VPS:**
+1. **Conectar via SSH:**
    ```bash
    ssh root@seu_ip_servidor
    ```
 
-2. **📦 Instalar dependências:**
+2. **Instalar dependências:**
    ```bash
    apt update && apt upgrade -y
    apt install -y nodejs npm git
    ```
 
-3. **🔒 Criar usuário não-root:**
+3. **Criar usuário não-root:**
    ```bash
    adduser nodeuser
    usermod -aG sudo nodeuser
    ```
 
-4. **📂 Clonar repositório:**
+4. **Clonar repositório:**
    ```bash
    git clone https://github.com/seu-usuario/sua-aplicacao.git
    cd sua-aplicacao
    npm install
    ```
 
-5. **🔄 Configurar PM2 para gestão de processos:**
+5. **Configurar PM2 para gestão de processos:**
    ```bash
    npm install -g pm2
    pm2 start server.js --name "minha-app"
@@ -274,7 +274,7 @@ Mais flexível, mas requer configuração manual e manutenção.
    pm2 save
    ```
 
-6. **🌐 Configurar Nginx como proxy reverso:**
+6. **Configurar Nginx como proxy reverso:**
    ```bash
    apt install -y nginx
    ```
@@ -304,18 +304,18 @@ Mais flexível, mas requer configuração manual e manutenção.
    systemctl restart nginx
    ```
 
-7. **🔒 Configurar HTTPS com Certbot:**
+7. **Configurar HTTPS com Certbot:**
    ```bash
    apt install -y certbot python3-certbot-nginx
    certbot --nginx -d meuapp.com -d www.meuapp.com
    ```
 
-## 🔄 CI/CD (Integração Contínua / Entrega Contínua)
+## CI/CD (Integração Contínua / Entrega Contínua)
 
-### 🔄 GitHub Actions
+### GitHub Actions
 Automatize testes e deploy diretamente do GitHub.
 
-**📄 .github/workflows/deploy.yml:**
+**.github/workflows/deploy.yml:**
 ```yaml
 name: Node.js CI/CD
 
@@ -350,10 +350,10 @@ jobs:
         heroku_email: ${{ secrets.HEROKU_EMAIL }}
 ```
 
-### 🔄 GitLab CI/CD
+### GitLab CI/CD
 Sistema de CI/CD integrado ao GitLab.
 
-**📄 .gitlab-ci.yml:**
+**.gitlab-ci.yml:**
 ```yaml
 stages:
   - test
@@ -376,10 +376,10 @@ deploy_production:
     - main
 ```
 
-### 🔄 Jenkins
+### Jenkins
 Servidor de automação de código aberto.
 
-**📄 Jenkinsfile:**
+**Jenkinsfile:**
 ```groovy
 pipeline {
   agent {
@@ -417,17 +417,17 @@ pipeline {
 }
 ```
 
-## 📊 Monitoramento e Manutenção
+## Monitoramento e Manutenção
 
-### 🔍 Gerenciamento de Processos com PM2
+### Gerenciamento de Processos com PM2
 PM2 é um gerenciador de processos para aplicações Node.js em produção.
 
-**📦 Instalação:**
+**Instalação:**
 ```bash
 npm install -g pm2
 ```
 
-**📋 Comandos básicos:**
+**Comandos básicos:**
 ```bash
 # Iniciar aplicação
 pm2 start server.js --name "minha-app"
@@ -449,7 +449,7 @@ pm2 startup
 pm2 save
 ```
 
-**📄 Arquivo de configuração (ecosystem.config.js):**
+**Arquivo de configuração (ecosystem.config.js):**
 ```javascript
 module.exports = {
   apps: [{
@@ -468,9 +468,9 @@ module.exports = {
 }
 ```
 
-### 📊 Logging e Monitoramento
+### Logging e Monitoramento
 
-#### 📝 Winston para logging
+#### Winston para logging
 ```javascript
 const winston = require('winston');
 const logger = winston.createLogger({
@@ -496,7 +496,7 @@ logger.info('Servidor iniciado na porta 3000');
 logger.error('Erro na conexão com o banco de dados', { error: err.message });
 ```
 
-#### 🔍 New Relic para monitoramento
+#### New Relic para monitoramento
 ```bash
 npm install newrelic
 ```
@@ -506,7 +506,7 @@ npm install newrelic
 require('newrelic');
 ```
 
-#### 📈 Sentry para monitoramento de erros
+#### Sentry para monitoramento de erros
 ```bash
 npm install @sentry/node
 ```
@@ -527,31 +527,31 @@ try {
 }
 ```
 
-## 🧪 Estratégias de Deploy
+## Estratégias de Deploy
 
-### 🔄 Blue-Green Deployment
+### Blue-Green Deployment
 Mantém duas versões idênticas da aplicação (blue e green), alternando entre elas.
 
-**📋 Processo típico:**
+**Processo típico:**
 1. "Blue" é a versão em produção
 2. Implante a nova versão "Green" em outro ambiente
 3. Teste a versão "Green"
 4. Redirecione o tráfego de "Blue" para "Green"
 5. "Green" torna-se produção; "Blue" fica como backup
 
-### 🔄 Canary Deployment
+### Canary Deployment
 Libera a nova versão gradualmente para um subconjunto de usuários.
 
-**📋 Processo típico:**
+**Processo típico:**
 1. Nova versão é implantada junto com a versão atual
 2. Pequena porcentagem do tráfego é direcionada para a nova versão
 3. Monitore métricas e problemas
 4. Gradualmente aumente a proporção até 100%
 
-### 🔄 Rolling Updates
+### Rolling Updates
 Atualiza instâncias da aplicação de forma gradual.
 
-**📋 Processo típico:**
+**Processo típico:**
 1. Várias instâncias da aplicação estão em execução
 2. Atualize uma instância de cada vez
 3. Verifique a saúde antes de prosseguir
@@ -559,6 +559,6 @@ Atualiza instâncias da aplicação de forma gradual.
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

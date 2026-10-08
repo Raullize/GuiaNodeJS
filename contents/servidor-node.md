@@ -1,16 +1,16 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🌎 Criando um Servidor com Node.js
+# Criando um Servidor com Node.js
 
-## 🌐 Introdução aos Servidores Web
+## Introdução aos Servidores Web
 
 Um servidor web é uma aplicação que processa requisições HTTP e retorna respostas aos clientes. Com Node.js, podemos criar servidores web eficientes e de alta performance utilizando o módulo HTTP nativo ou frameworks como Express.
 
-## 📦 Módulo HTTP Nativo
+## Módulo HTTP Nativo
 
 O Node.js possui um módulo HTTP integrado que permite criar servidores web sem dependências externas.
 
-### 🔨 Servidor Básico com HTTP
+### Servidor Básico com HTTP
 
 ```javascript
 // Importando o módulo HTTP
@@ -35,7 +35,7 @@ server.listen(PORT, () => {
 });
 ```
 
-### 🔄 Manipulando Diferentes Rotas
+### Manipulando Diferentes Rotas
 
 ```javascript
 const http = require('http');
@@ -75,7 +75,7 @@ server.listen(3000, () => {
 });
 ```
 
-### 📡 Métodos HTTP
+### Métodos HTTP
 
 Podemos processar diferentes métodos HTTP (GET, POST, PUT, DELETE) para criar um servidor mais completo:
 
@@ -139,17 +139,17 @@ server.listen(3000, () => {
 });
 ```
 
-## 🚀 Criando Servidor com Express
+## Criando Servidor com Express
 
 O Express é um framework web minimalista que facilita a criação de servidores e APIs.
 
-### 📦 Instalação do Express
+### Instalação do Express
 
 ```bash
 npm install express
 ```
 
-### 🔨 Servidor Básico com Express
+### Servidor Básico com Express
 
 ```javascript
 // Importando o Express
@@ -172,7 +172,7 @@ app.listen(PORT, () => {
 });
 ```
 
-### 🔄 Rotas com Express
+### Rotas com Express
 
 O Express torna o roteamento muito mais simples:
 
@@ -221,7 +221,7 @@ app.listen(3000, () => {
 });
 ```
 
-### 📡 API RESTful com Express
+### API RESTful com Express
 
 O Express facilita a criação de APIs RESTful:
 
@@ -315,7 +315,7 @@ app.listen(3000, () => {
 });
 ```
 
-## 🔄 WebSockets com Node.js
+## WebSockets com Node.js
 
 Para comunicação em tempo real, podemos usar WebSockets com a biblioteca Socket.IO:
 
@@ -409,29 +409,29 @@ HTML do cliente:
 </html>
 ```
 
-## 💡 Melhores Práticas
+## Melhores Práticas
 
 ### ✅ Recomendações:
-- **🔒 Utilize HTTPS** para comunicações seguras
-- **🧰 Implemente middleware** para tratamento de erro e logging
-- **🚧 Estruture bem suas rotas** para organização e manutenibilidade
-- **⚡ Use nodemon** durante o desenvolvimento para reiniciar automaticamente o servidor
-- **🔍 Monitore o desempenho** de seu servidor em produção
-- **🌐 Utilize sistema de cache** para melhorar a performance
+- **Utilize HTTPS** para comunicações seguras
+- **Implemente middleware** para tratamento de erro e logging
+- **Estruture bem suas rotas** para organização e manutenibilidade
+- **Use nodemon** durante o desenvolvimento para reiniciar automaticamente o servidor
+- **Monitore o desempenho** de seu servidor em produção
+- **Utilize sistema de cache** para melhorar a performance
 
 ### ❌ Práticas a evitar:
-- **⛔ Código bloqueante** que possa travar o Event Loop
-- **🚫 Expor informações sensíveis** nos logs ou respostas de erro
+- **Código bloqueante** que possa travar o Event Loop
+- **Expor informações sensíveis** nos logs ou respostas de erro
 - **⚠️ Ignorar tratamento de exceções** que podem derrubar o servidor
-- **🛑 Usar operações síncronas** em rotas de alta demanda
+- **Usar operações síncronas** em rotas de alta demanda
 
-## 📂 Trabalhando com __dirname e __filename
+## Trabalhando com __dirname e __filename
 
-### 🔍 O que são?
+### O que são?
 - **__dirname**: Variável global que contém o caminho absoluto do diretório do arquivo atual
 - **__filename**: Variável global que contém o caminho absoluto completo do arquivo atual
 
-### 📝 Exemplos de uso
+### Exemplos de uso
 
 ```javascript
 const path = require('path');
@@ -472,14 +472,14 @@ app.get('/download', (req, res) => {
 app.set('views', path.join(__dirname, 'views'));
 ```
 
-### 🔹 Boas Práticas
+### Boas Práticas
 1. **Sempre use path.join()**: Para garantir compatibilidade entre sistemas operacionais
 2. **Evite concatenação de strings**: Não use `__dirname + '/arquivo'`
 3. **Considere caminhos relativos**: Use `path.relative()` quando necessário
 4. **Organize arquivos estáticos**: Use uma estrutura clara de diretórios
 5. **Verifique existência**: Sempre verifique se arquivos/diretórios existem antes de usá-los
 
-### 🚫 Práticas a Evitar
+### Práticas a Evitar
 ```javascript
 // ❌ Não faça isso
 const badPath = __dirname + '/config/database.js';
@@ -491,6 +491,6 @@ const goodPath = path.join(__dirname, 'config', 'database.js');
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

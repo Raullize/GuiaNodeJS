@@ -1,30 +1,30 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 📑 Estrutura de Dados JSON
+# Estrutura de Dados JSON
 
-## 🤔 O que é JSON?
+## O que é JSON?
 JSON (JavaScript Object Notation) é um formato leve de intercâmbio de dados, fácil para humanos lerem e escreverem, e simples para máquinas analisarem e gerarem. É baseado em um subconjunto da linguagem JavaScript, mas é independente de linguagem.
 
-### 🔹 Características do JSON:
-- **🧩 Formato de texto simples**: Independente de linguagem
-- **🔄 Compatível com JavaScript**: Pode ser convertido diretamente em objetos JavaScript
-- **🌐 Universalmente aceito**: Utilizado em várias linguagens e sistemas
-- **📊 Auto-descritivo**: A estrutura de dados é clara
-- **🔄 Facilmente serializável**: Ideal para transferir dados pela web
+### Características do JSON:
+- **Formato de texto simples**: Independente de linguagem
+- **Compatível com JavaScript**: Pode ser convertido diretamente em objetos JavaScript
+- **Universalmente aceito**: Utilizado em várias linguagens e sistemas
+- **Auto-descritivo**: A estrutura de dados é clara
+- **Facilmente serializável**: Ideal para transferir dados pela web
 
-## 📋 Sintaxe básica do JSON
+## Sintaxe básica do JSON
 
-### 🧰 Tipos de dados suportados:
-- **🔢 Números**: Inteiros ou decimais sem aspas
-- **📝 Strings**: Texto entre aspas duplas
+### Tipos de dados suportados:
+- **Números**: Inteiros ou decimais sem aspas
+- **Strings**: Texto entre aspas duplas
 - **✅ Booleanos**: true ou false
-- **🚫 null**: Representa valor nulo
-- **📚 Arrays**: Coleção ordenada de valores
-- **📦 Objetos**: Coleção de pares chave-valor
+- **null**: Representa valor nulo
+- **Arrays**: Coleção ordenada de valores
+- **Objetos**: Coleção de pares chave-valor
 
-### 📊 Exemplos de estruturas JSON:
+### Exemplos de estruturas JSON:
 
-#### 📄 Objeto simples
+#### Objeto simples
 ```json
 {
   "nome": "Maria Silva",
@@ -34,7 +34,7 @@ JSON (JavaScript Object Notation) é um formato leve de intercâmbio de dados, f
 }
 ```
 
-#### 📚 Array de objetos
+#### Array de objetos
 ```json
 [
   {
@@ -52,7 +52,7 @@ JSON (JavaScript Object Notation) é um formato leve de intercâmbio de dados, f
 ]
 ```
 
-#### 🔄 Estruturas aninhadas
+#### Estruturas aninhadas
 ```json
 {
   "empresa": "TechSolutions",
@@ -79,9 +79,9 @@ JSON (JavaScript Object Notation) é um formato leve de intercâmbio de dados, f
 }
 ```
 
-## 🔄 Trabalhando com JSON em Node.js
+## Trabalhando com JSON em Node.js
 
-### 📤 Convertendo objetos para JSON (Serialização)
+### Convertendo objetos para JSON (Serialização)
 ```javascript
 const usuario = {
   nome: "Pedro Souza",
@@ -108,7 +108,7 @@ console.log(usuarioJSONFormatado);
 */
 ```
 
-### 📥 Convertendo JSON para objetos (Desserialização)
+### Convertendo JSON para objetos (Desserialização)
 ```javascript
 const jsonString = '{"produto":"Monitor","preco":1200,"estoque":15}';
 
@@ -118,7 +118,7 @@ console.log(produto.produto); // Monitor
 console.log(produto.preco);   // 1200
 ```
 
-### 💾 Salvando e lendo JSON em arquivos
+### Salvando e lendo JSON em arquivos
 ```javascript
 const fs = require('fs');
 
@@ -138,9 +138,9 @@ console.log(dadosLidos.titulo);  // Aprendendo JSON
 console.log(dadosLidos.topicos); // ["Sintaxe", "Serialização", "Desserialização"]
 ```
 
-## 🛡️ Boas práticas ao trabalhar com JSON
+## Boas práticas ao trabalhar com JSON
 
-1. **🔍 Validação**: Sempre valide o JSON antes de processá-lo
+1. **Validação**: Sempre valide o JSON antes de processá-lo
    ```javascript
    try {
      const dados = JSON.parse(jsonString);
@@ -150,12 +150,12 @@ console.log(dadosLidos.topicos); // ["Sintaxe", "Serialização", "Desserializa�
    }
    ```
 
-2. **🔐 Segurança**: Cuidado com JSON de fontes não confiáveis (possível injeção)
-3. **📏 Tamanho**: Evite documentos JSON muito grandes
-4. **📄 Documentação**: Documente a estrutura esperada para facilitar o uso
-5. **📚 Bibliotecas específicas**: Use bibliotecas como `ajv` para validação de schema JSON
+2. **Segurança**: Cuidado com JSON de fontes não confiáveis (possível injeção)
+3. **Tamanho**: Evite documentos JSON muito grandes
+4. **Documentação**: Documente a estrutura esperada para facilitar o uso
+5. **Bibliotecas específicas**: Use bibliotecas como `ajv` para validação de schema JSON
 
-### 🧪 Validação com schemas JSON
+### Validação com schemas JSON
 ```javascript
 const Ajv = require('ajv');
 const addFormats = require('ajv-formats');
@@ -186,9 +186,9 @@ if (valido) {
 }
 ```
 
-## 🔧 Validação e Manipulação Avançada
+## Validação e Manipulação Avançada
 
-### 🎯 Schemas JSON complexos
+### Schemas JSON complexos
 ```javascript
 const Ajv = require('ajv');
 const addFormats = require('ajv-formats');
@@ -279,7 +279,7 @@ const resultado = validarProduto(produto);
 console.log(resultado);
 ```
 
-### 🔄 Transformação e sanitização de dados
+### Transformação e sanitização de dados
 ```javascript
 // Função para sanitizar e transformar dados JSON
 function sanitizarDados(dados) {
@@ -327,11 +327,11 @@ function criarValidadorCondicional(tipoUsuario) {
 }
 ```
 
-## ⚡ Performance com Grandes Volumes de JSON
+## Performance com Grandes Volumes de JSON
 
-### 📊 Estratégias para otimização de performance
+### Estratégias para otimização de performance
 
-#### 🔄 Streaming de JSON para arquivos grandes
+#### Streaming de JSON para arquivos grandes
 ```javascript
 const fs = require('fs');
 const { Transform } = require('stream');
@@ -382,7 +382,7 @@ function processarJSONGrande(caminhoArquivo) {
 }
 ```
 
-#### 🚀 Otimizações de parsing e serialização
+#### Otimizações de parsing e serialização
 ```javascript
 // Comparação de performance entre diferentes métodos
 const { performance } = require('perf_hooks');
@@ -449,7 +449,7 @@ testarSerializacao();
 testarParsing();
 ```
 
-#### 💾 Compressão e cache para JSON
+#### Compressão e cache para JSON
 ```javascript
 const zlib = require('zlib');
 const crypto = require('crypto');
@@ -561,27 +561,27 @@ async function exemploCache() {
 // exemploCache();
 ```
 
-### 🎯 Dicas de performance para JSON
+### Dicas de performance para JSON
 
-1. **🔄 Use streaming**: Para arquivos > 50MB, sempre use streaming
-2. **📦 Comprima dados**: Use gzip/deflate para reduzir tamanho
-3. **🎯 Filtre campos**: Serialize apenas campos necessários
-4. **💾 Implemente cache**: Cache resultados de parsing pesados
-5. **⚡ Evite parsing desnecessário**: Valide antes de fazer parse
-6. **🔧 Use bibliotecas otimizadas**: Como `fast-json-stringify` para serialização
-7. **📊 Monitore performance**: Use `performance.now()` para medir tempos
+1. **Use streaming**: Para arquivos > 50MB, sempre use streaming
+2. **Comprima dados**: Use gzip/deflate para reduzir tamanho
+3. **Filtre campos**: Serialize apenas campos necessários
+4. **Implemente cache**: Cache resultados de parsing pesados
+5. **Evite parsing desnecessário**: Valide antes de fazer parse
+6. **Use bibliotecas otimizadas**: Como `fast-json-stringify` para serialização
+7. **Monitore performance**: Use `performance.now()` para medir tempos
 
-## 📌 JSON vs. XML
+## JSON vs. XML
 JSON frequentemente substitui XML por ser mais leve e fácil de processar:
 
-### 👍 Vantagens do JSON sobre XML:
-- **📉 Sintaxe mais concisa**: Menos verboso
-- **⚡ Processamento mais rápido**: Em geral, parsing mais eficiente
-- **🧩 Integração natural com JavaScript**: Conversão direta para objetos
-- **📊 Facilidade de leitura**: Estrutura mais simples e intuitiva
+### Vantagens do JSON sobre XML:
+- **Sintaxe mais concisa**: Menos verboso
+- **Processamento mais rápido**: Em geral, parsing mais eficiente
+- **Integração natural com JavaScript**: Conversão direta para objetos
+- **Facilidade de leitura**: Estrutura mais simples e intuitiva
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

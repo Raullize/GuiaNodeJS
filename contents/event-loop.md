@@ -1,20 +1,20 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🔄 Event Loop, Call Stack e Non-blocking I/O
+# Event Loop, Call Stack e Non-blocking I/O
 
-## 🔍 Entendendo a execução assíncrona do Node.js
+## Entendendo a execução assíncrona do Node.js
 
 O Node.js é construído sobre um modelo de programação assíncrona e orientada a eventos, que é fundamental para sua alta performance e eficiência. Para entender como isso funciona, precisamos conhecer três conceitos essenciais: **Event Loop**, **Call Stack** e **Non-blocking I/O**.
 
-## 📚 Call Stack (Pilha de Chamadas)
+## Call Stack (Pilha de Chamadas)
 
 A Call Stack é uma estrutura de dados que armazena informações sobre as funções em execução no programa.
 
-### ⚙️ Como funciona:
-- **📥 LIFO (Last In, First Out)**: A última função a entrar é a primeira a sair
+### Como funciona:
+- **LIFO (Last In, First Out)**: A última função a entrar é a primeira a sair
 - **⬆️ Push**: Quando uma função é chamada, ela é adicionada ao topo da pilha
 - **⬇️ Pop**: Quando uma função termina, ela é removida da pilha
-- **🔁 Execução síncrona**: Cada função na pilha é processada completamente antes de passar para a próxima
+- **Execução síncrona**: Cada função na pilha é processada completamente antes de passar para a próxima
 
 ```javascript
 // Exemplo de Call Stack
@@ -40,15 +40,15 @@ primeiraFuncao();
 // 7. primeiraFuncao() termina e é removida da pilha
 ```
 
-## 🔄 Event Loop
+## Event Loop
 
 O Event Loop é o coração do sistema assíncrono do Node.js, permitindo executar operações não-bloqueantes.
 
-### ⚙️ Como funciona:
-- **🔍 Monitoramento**: Verifica constantemente se a Call Stack está vazia
-- **📋 Fila de eventos**: Gerencia callbacks prontos para serem executados
-- **🔄 Execução cíclica**: Transfere eventos da fila para a Call Stack quando esta está vazia
-- **🧠 Prioridade**: Respeita a ordem de chegada dos eventos (com algumas exceções)
+### Como funciona:
+- **Monitoramento**: Verifica constantemente se a Call Stack está vazia
+- **Fila de eventos**: Gerencia callbacks prontos para serem executados
+- **Execução cíclica**: Transfere eventos da fila para a Call Stack quando esta está vazia
+- **Prioridade**: Respeita a ordem de chegada dos eventos (com algumas exceções)
 
 ```javascript
 // Exemplo de Event Loop
@@ -79,25 +79,25 @@ console.log("Fim");
 // Arquivo lido (tempo varia com o sistema de arquivos)
 ```
 
-### 🔄 Fases do Event Loop
+### Fases do Event Loop
 O Event Loop do Node.js possui várias fases, cada uma com sua própria fila de callbacks:
 
-1. **⏱️ Timers**: Executa callbacks agendados por `setTimeout()` e `setInterval()`
-2. **⏳ Pending callbacks**: Executa callbacks de operações I/O adiadas
-3. **🔍 Idle, prepare**: Fase interna do Node.js
-4. **📥 Poll**: Busca novos eventos I/O e executa seus callbacks
+1. **Timers**: Executa callbacks agendados por `setTimeout()` e `setInterval()`
+2. **Pending callbacks**: Executa callbacks de operações I/O adiadas
+3. **Idle, prepare**: Fase interna do Node.js
+4. **Poll**: Busca novos eventos I/O e executa seus callbacks
 5. **✅ Check**: Executa callbacks agendados por `setImmediate()`
-6. **🔚 Close callbacks**: Executa callbacks de eventos de fechamento (ex: `socket.on('close', ...)`)
+6. **Close callbacks**: Executa callbacks de eventos de fechamento (ex: `socket.on('close', ...)`)
 
-## ⚡ Non-blocking I/O
+## Non-blocking I/O
 
 O modelo de I/O não-bloqueante é fundamental para o desempenho do Node.js.
 
-### ⚙️ Como funciona:
-- **🧵 Delegação**: Operações de I/O são delegadas ao sistema operacional
-- **🔄 Assincronicidade**: O programa continua executando enquanto espera resultados
-- **📞 Callbacks**: Quando a operação é concluída, o callback é enfileirado no Event Loop
-- **🧠 Thread Pool**: Utiliza um pool de threads gerenciado pela libuv para operações pesadas
+### Como funciona:
+- **Delegação**: Operações de I/O são delegadas ao sistema operacional
+- **Assincronicidade**: O programa continua executando enquanto espera resultados
+- **Callbacks**: Quando a operação é concluída, o callback é enfileirado no Event Loop
+- **Thread Pool**: Utiliza um pool de threads gerenciado pela libuv para operações pesadas
 
 ```javascript
 // Exemplo de I/O não-bloqueante vs. bloqueante
@@ -119,14 +119,14 @@ try {
 console.log("Esta linha só executa após a leitura do arquivo");
 ```
 
-## 🧵 Thread Pool
+## Thread Pool
 
 Apesar do Node.js ser single-threaded, algumas operações são processadas por um pool de threads:
 
-- **🔐 Operações criptográficas**: funções do módulo `crypto`
-- **🗄️ Operações de arquivo**: filesystem I/O
-- **📡 DNS**: Resoluções de nomes de domínio
-- **🧮 Operações intensivas de CPU**: Tarefas computacionais pesadas
+- **Operações criptográficas**: funções do módulo `crypto`
+- **Operações de arquivo**: filesystem I/O
+- **DNS**: Resoluções de nomes de domínio
+- **Operações intensivas de CPU**: Tarefas computacionais pesadas
 
 ```javascript
 // Exemplo de operação que utiliza o thread pool
@@ -141,19 +141,19 @@ crypto.pbkdf2('senha', 'salt', 100000, 512, 'sha512', (err, derivedKey) => {
 console.log('Esta linha é executada enquanto a operação criptográfica ocorre em background');
 ```
 
-## 📊 Microtasks e Macrotasks
+## Microtasks e Macrotasks
 
 O Event Loop do Node.js prioriza certos tipos de tarefas:
 
-### 🔹 Microtasks:
-- **🤝 Promises** (`then`, `catch`, `finally`)
-- **🧩 process.nextTick()** (máxima prioridade)
-- **⚙️ queueMicrotask()**
+### Microtasks:
+- **Promises** (`then`, `catch`, `finally`)
+- **process.nextTick()** (máxima prioridade)
+- **queueMicrotask()**
 
-### 🔸 Macrotasks:
-- **⏱️ setTimeout, setInterval**
+### Macrotasks:
+- **setTimeout, setInterval**
 - **✅ setImmediate**
-- **📡 I/O Operations**
+- **I/O Operations**
 
 ```javascript
 console.log('Script início');
@@ -188,23 +188,23 @@ console.log('Script fim');
 // setImmediate (macrotask, geralmente após o setTimeout)
 ```
 
-## 💡 Melhores Práticas
+## Melhores Práticas
 
 ### ✅ Recomendações:
-- **⚡ Evite operações síncronas** bloqueantes em código de produção
-- **🔄 Use Promises ou async/await** para melhor legibilidade de código assíncrono
+- **Evite operações síncronas** bloqueantes em código de produção
+- **Use Promises ou async/await** para melhor legibilidade de código assíncrono
 - **⚠️ Tome cuidado com loops grandes** e operações intensivas de CPU
-- **📦 Divida tarefas intensivas** em partes menores usando `setImmediate`
-- **🧠 Entenda as prioridades** de microtasks e macrotasks
+- **Divida tarefas intensivas** em partes menores usando `setImmediate`
+- **Entenda as prioridades** de microtasks e macrotasks
 
 ### ❌ Práticas a evitar:
-- **🛑 Operações bloqueantes** no event loop principal
-- **⛔ Callbacks profundamente aninhados** (callback hell)
+- **Operações bloqueantes** no event loop principal
+- **Callbacks profundamente aninhados** (callback hell)
 - **⚠️ Promessas não tratadas** (erros silenciosos)
-- **📉 Muito código síncrono** de execução longa
+- **Muito código síncrono** de execução longa
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

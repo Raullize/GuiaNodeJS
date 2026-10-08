@@ -1,20 +1,20 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 📡 Criando uma API com Express
+# Criando uma API com Express
 
-## 🤔 O que é Express.js?
+## O que é Express.js?
 Express.js é um framework web rápido, flexível e minimalista para Node.js que fornece um conjunto robusto de recursos para aplicações web e mobile. É o framework mais popular para Node.js e é usado para criar APIs RESTful e aplicações web.
 
-### 🔹 Características do Express.js:
-- **🚀 Performance**: Framework leve com alta performance
-- **⚙️ Minimalista**: Fornece apenas o necessário, sem opiniões fortes
-- **🧩 Extensível**: Facilmente extensível com middlewares
-- **📦 Ecossistema rico**: Grande quantidade de plugins e extensões disponíveis
-- **📊 Rotas flexíveis**: Sistema de roteamento poderoso e intuitivo
+### Características do Express.js:
+- **Performance**: Framework leve com alta performance
+- **Minimalista**: Fornece apenas o necessário, sem opiniões fortes
+- **Extensível**: Facilmente extensível com middlewares
+- **Ecossistema rico**: Grande quantidade de plugins e extensões disponíveis
+- **Rotas flexíveis**: Sistema de roteamento poderoso e intuitivo
 
-## 🚀 Iniciando um projeto Express
+## Iniciando um projeto Express
 
-### 📋 Configuração inicial
+### Configuração inicial
 ```bash
 # Criar uma nova pasta para o projeto
 mkdir minha-api-express
@@ -27,7 +27,7 @@ npm init -y
 npm install express
 ```
 
-### 📄 Criando um servidor básico
+### Criando um servidor básico
 ```javascript
 // Arquivo: app.js
 const express = require('express');
@@ -48,7 +48,7 @@ app.listen(PORT, () => {
 });
 ```
 
-## 📚 Estrutura de projeto recomendada
+## Estrutura de projeto recomendada
 
 ```
 minha-api-express/
@@ -63,9 +63,9 @@ minha-api-express/
   └── package.json     # Dependências
 ```
 
-### 🔍 Exemplo de estruturação do código
+### Exemplo de estruturação do código
 
-#### 📄 routes/usuarios.js
+#### routes/usuarios.js
 ```javascript
 const express = require('express');
 const router = express.Router();
@@ -80,7 +80,7 @@ router.delete('/:id', usuariosController.remover);
 module.exports = router;
 ```
 
-#### 📄 controllers/usuarios.js
+#### controllers/usuarios.js
 ```javascript
 const usuarios = [
   { id: 1, nome: 'Ana Silva', email: 'ana@exemplo.com' },
@@ -157,7 +157,7 @@ exports.remover = (req, res) => {
 };
 ```
 
-#### 📄 app.js atualizado
+#### app.js atualizado
 ```javascript
 const express = require('express');
 const app = express();
@@ -176,7 +176,7 @@ app.get('/', (req, res) => {
 module.exports = app;
 ```
 
-#### 📄 server.js
+#### server.js
 ```javascript
 const app = require('./app');
 const PORT = process.env.PORT || 3000;
@@ -186,19 +186,19 @@ app.listen(PORT, () => {
 });
 ```
 
-## 🛡️ Middlewares em Express
+## Middlewares em Express
 
 Middlewares são funções que têm acesso ao objeto de requisição (req), objeto de resposta (res) e à próxima função middleware (next) no ciclo de requisição-resposta.
 
-### 📋 Tipos de middleware:
-- **🌐 Middleware de aplicação**: Usado em toda a aplicação
-- **🛣️ Middleware de rota**: Usado apenas em rotas específicas
-- **🔍 Middleware de erro**: Usado para tratamento de erros
-- **📦 Middleware de terceiros**: Pacotes npm (como o cors, morgan, etc)
+### Tipos de middleware:
+- **Middleware de aplicação**: Usado em toda a aplicação
+- **Middleware de rota**: Usado apenas em rotas específicas
+- **Middleware de erro**: Usado para tratamento de erros
+- **Middleware de terceiros**: Pacotes npm (como o cors, morgan, etc)
 
-### 📝 Exemplos de middlewares
+### Exemplos de middlewares
 
-#### 🔍 Middleware personalizado para logging
+#### Middleware personalizado para logging
 ```javascript
 // middlewares/logger.js
 function logger(req, res, next) {
@@ -209,7 +209,7 @@ function logger(req, res, next) {
 module.exports = logger;
 ```
 
-#### 🔐 Middleware para autenticação
+#### Middleware para autenticação
 ```javascript
 // middlewares/auth.js
 function autenticar(req, res, next) {
@@ -225,7 +225,7 @@ function autenticar(req, res, next) {
 module.exports = autenticar;
 ```
 
-#### 📄 Aplicando os middlewares
+#### Aplicando os middlewares
 ```javascript
 const express = require('express');
 const app = express();
@@ -247,11 +247,11 @@ app.get('/', (req, res) => {
 module.exports = app;
 ```
 
-## 🧰 Ferramentas úteis para Express
+## Ferramentas úteis para Express
 
-### 🔄 Nodemon: Desenvolvimento com Auto-Reload
+### Nodemon: Desenvolvimento com Auto-Reload
 
-#### 📦 Instalação e Configuração
+#### Instalação e Configuração
 ```bash
 # Instalação global
 npm install -g nodemon
@@ -260,7 +260,7 @@ npm install -g nodemon
 npm install nodemon --save-dev
 ```
 
-#### 📝 Configuração no package.json
+#### Configuração no package.json
 ```json
 {
   "scripts": {
@@ -271,7 +271,7 @@ npm install nodemon --save-dev
 }
 ```
 
-#### ⚙️ Configuração Avançada (nodemon.json)
+#### Configuração Avançada (nodemon.json)
 ```json
 {
   "watch": [
@@ -296,7 +296,7 @@ npm install nodemon --save-dev
 }
 ```
 
-#### 🔍 Opções Comuns
+#### Opções Comuns
 - **watch**: Lista de diretórios para monitorar
 - **ext**: Extensões de arquivo para monitorar
 - **ignore**: Arquivos/diretórios para ignorar
@@ -304,31 +304,31 @@ npm install nodemon --save-dev
 - **exec**: Comando personalizado para execução
 - **env**: Variáveis de ambiente
 
-#### 📋 Exemplos de Uso
+#### Exemplos de Uso
 
-##### 🔹 Executando com TypeScript
+##### Executando com TypeScript
 ```bash
 nodemon --exec ts-node ./src/server.ts
 ```
 
-##### 🔹 Com variáveis de ambiente
+##### Com variáveis de ambiente
 ```bash
 nodemon -r dotenv/config server.js
 ```
 
-##### 🔹 Com argumentos específicos
+##### Com argumentos específicos
 ```bash
 nodemon --watch src --ignore tests/ server.js
 ```
 
-##### 🔧 Comandos Úteis Durante Execução
+##### Comandos Úteis Durante Execução
 - **rs**: Reinicia manualmente o servidor
 - **CTRL + C**: Para o servidor
 - **clear**: Limpa o console
 
-##### 🚫 Problemas Comuns e Soluções
+##### Problemas Comuns e Soluções
 
-###### 🔸 Reinícios em Loop
+###### Reinícios em Loop
 ```json
 {
   "ignore": [
@@ -339,7 +339,7 @@ nodemon --watch src --ignore tests/ server.js
 }
 ```
 
-###### 🔸 Arquivos Temporários
+###### Arquivos Temporários
 ```json
 {
   "ignore": [
@@ -349,12 +349,12 @@ nodemon --watch src --ignore tests/ server.js
 }
 ```
 
-###### 🔸 Problemas com Memória
+###### Problemas com Memória
 ```bash
 nodemon --max-old-space-size=4096 server.js
 ```
 
-###### 🔹 Integração com Debugger
+###### Integração com Debugger
 ```json
 {
   "scripts": {
@@ -363,14 +363,14 @@ nodemon --max-old-space-size=4096 server.js
 }
 ```
 
-#### 📝 Boas Práticas
+#### Boas Práticas
 1. **Instale localmente**: Evite instalações globais
 2. **Use scripts npm**: Configure no package.json
 3. **Configure ignore**: Evite monitorar arquivos desnecessários
 4. **Defina extensões**: Especifique apenas as necessárias
 5. **Use delay**: Em projetos grandes para evitar múltiplos reloads
 
-### 📝 Validação de dados com express-validator
+### Validação de dados com express-validator
 ```bash
 npm install express-validator
 ```
@@ -395,7 +395,7 @@ const validarUsuario = [
 router.post('/', validarUsuario, usuariosController.criar);
 ```
 
-### 🌐 CORS para permitir acesso cross-origin
+### CORS para permitir acesso cross-origin
 ```bash
 npm install cors
 ```
@@ -414,9 +414,9 @@ app.use(cors({
 }));
 ```
 
-## 📊 Integrando com banco de dados
+## Integrando com banco de dados
 
-### 🗄️ Exemplo com MongoDB e Mongoose
+### Exemplo com MongoDB e Mongoose
 ```bash
 npm install mongoose
 ```
@@ -478,22 +478,22 @@ app.listen(PORT, () => {
 });
 ```
 
-## 🚀 Boas práticas para APIs RESTful com Express
+## Boas práticas para APIs RESTful com Express
 
-1. **📚 Use substantivos para recursos, não verbos**
+1. **Use substantivos para recursos, não verbos**
    - Bom: `/api/usuarios`
    - Evite: `/api/getUsuarios`
 
-2. **📝 Versione sua API**
+2. **Versione sua API**
    - Exemplo: `/api/v1/usuarios`
 
-3. **🔍 Use filtros, ordenação e paginação para coleções**
+3. **Use filtros, ordenação e paginação para coleções**
    - Exemplo: `/api/usuarios?limite=10&pagina=2&ordenar=nome`
 
-4. **📊 Retorne códigos de status HTTP apropriados**
+4. **Retorne códigos de status HTTP apropriados**
    - 200 OK, 201 Created, 400 Bad Request, 404 Not Found, etc.
 
-5. **🛡️ Implemente tratamento global de erros**
+5. **Implemente tratamento global de erros**
    ```javascript
    // middlewares/errorHandler.js
    function errorHandler(err, req, res, next) {
@@ -503,17 +503,17 @@ app.listen(PORT, () => {
        detalhes: process.env.NODE_ENV === 'development' ? err.message : undefined
      });
    }
-   
+  
    // No final de app.js
    app.use(errorHandler);
    ```
 
-6. **🔐 Use HTTPS em produção**
-7. **📝 Documente sua API** (Swagger/OpenAPI)
-8. **📊 Implemente logging e monitoramento**
+6. **Use HTTPS em produção**
+7. **Documente sua API** (Swagger/OpenAPI)
+8. **Implemente logging e monitoramento**
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

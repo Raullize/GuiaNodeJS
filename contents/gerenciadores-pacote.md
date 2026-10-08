@@ -1,24 +1,24 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 📦 Gerenciadores de Pacotes
+# Gerenciadores de Pacotes
 
-## 🔍 O que são Gerenciadores de Pacotes?
+## O que são Gerenciadores de Pacotes?
 Os gerenciadores de pacotes são ferramentas essenciais no ecossistema Node.js que facilitam a instalação, remoção e atualização de dependências em projetos. Eles permitem compartilhar e reutilizar código de forma eficiente.
 
-## 🛠️ Principais Gerenciadores
+## Principais Gerenciadores
 
-### 📚 npm (Node Package Manager)
+### npm (Node Package Manager)
 O npm é o gerenciador de pacotes padrão que vem instalado com o Node.js.
 
 #### Comandos básicos:
-- **📥 Instalação de pacotes**: `npm install pacote` ou `npm i pacote`
-- **🌐 Instalação global**: `npm install -g pacote`
-- **🔧 Instalação para desenvolvimento**: `npm install --save-dev pacote` ou `npm i -D pacote`
-- **🔄 Atualização de pacotes**: `npm update pacote`
-- **🚮 Remoção de pacotes**: `npm uninstall pacote`
-- **▶️ Executar scripts**: `npm run script-name`
+- **Instalação de pacotes**: `npm install pacote` ou `npm i pacote`
+- **Instalação global**: `npm install -g pacote`
+- **Instalação para desenvolvimento**: `npm install --save-dev pacote` ou `npm i -D pacote`
+- **Atualização de pacotes**: `npm update pacote`
+- **Remoção de pacotes**: `npm uninstall pacote`
+- **▶ Executar scripts**: `npm run script-name`
 
-#### 📄 Arquivos de configuração:
+#### Arquivos de configuração:
 - **package.json**: Contém metadados do projeto e lista de dependências
 - **package-lock.json**: Garante instalações consistentes entre ambientes
 
@@ -44,11 +44,11 @@ O npm é o gerenciador de pacotes padrão que vem instalado com o Node.js.
 }
 ```
 
-### ⚡ Diferença entre `npm` e `npx`
+### Diferença entre `npm` e `npx`
 
 A diferença entre `npm` e `npx` pode ser explicada de forma simples e direta, mas também com os detalhes técnicos para entender bem cada um:
 
-### 📦 `npm` (Node Package Manager)
+### `npm` (Node Package Manager)
 
 - **O que é?**  
   É o gerenciador de pacotes do Node.js. Usado para instalar pacotes (bibliotecas, frameworks, etc.) no seu projeto ou globalmente.
@@ -67,7 +67,7 @@ A diferença entre `npm` e `npx` pode ser explicada de forma simples e direta, m
     npm run build
     ```
 
-### ⚡ `npx` (Node Package Execute)
+### `npx` (Node Package Execute)
 
 - **O que é?**  
   Um executor de pacotes. Foi introduzido com o `npm` v5.2+ e permite **executar pacotes sem precisar instalá-los manualmente**.
@@ -87,16 +87,16 @@ A diferença entre `npm` e `npx` pode ser explicada de forma simples e direta, m
     npx eslint src/
     ```
 
-### 📊 Comparação Rápida
+### Comparação Rápida
 
-| Característica         | `npm`                                 | `npx`                                 |
+| Característica | `npm`                                 | `npx`                                 |
 |------------------------|----------------------------------------|----------------------------------------|
-| Instala pacotes        | Sim                                     | Não (só executa)                        |
-| Executa binários       | Indiretamente (`npm run script`)       | Diretamente (`npx nome-do-pacote`)     |
-| Requer instalação prévia | Sim, precisa do pacote instalado        | Não necessariamente                    |
-| Ideal para             | Gerenciar dependências                 | Executar ferramentas/CLI pontuais      |
+| Instala pacotes | Sim | Não (só executa) |
+| Executa binários | Indiretamente (`npm run script`) | Diretamente (`npx nome-do-pacote`) |
+| Requer instalação prévia | Sim, precisa do pacote instalado | Não necessariamente |
+| Ideal para | Gerenciar dependências | Executar ferramentas/CLI pontuais |
 
-### 💡 Exemplo Prático
+### Exemplo Prático
 
 - Com `npm`:
   ```bash
@@ -109,29 +109,29 @@ A diferença entre `npm` e `npx` pode ser explicada de forma simples e direta, m
   ```
 
 
-### 🧶 Yarn
+### Yarn
 Yarn é uma alternativa ao npm, conhecido por seu melhor desempenho e confiabilidade.
 
 #### Comandos básicos:
-- **📥 Instalação de pacotes**: `yarn add pacote`
-- **🌐 Instalação global**: `yarn global add pacote`
-- **🔧 Instalação para desenvolvimento**: `yarn add --dev pacote`
-- **🔄 Atualização de pacotes**: `yarn upgrade pacote`
-- **🚮 Remoção de pacotes**: `yarn remove pacote`
-- **▶️ Executar scripts**: `yarn script-name`
+- **Instalação de pacotes**: `yarn add pacote`
+- **Instalação global**: `yarn global add pacote`
+- **Instalação para desenvolvimento**: `yarn add --dev pacote`
+- **Atualização de pacotes**: `yarn upgrade pacote`
+- **Remoção de pacotes**: `yarn remove pacote`
+- **▶ Executar scripts**: `yarn script-name`
 
-#### 📄 Arquivos de configuração:
+#### Arquivos de configuração:
 - **yarn.lock**: Similar ao package-lock.json, garante consistência nas instalações
 
-### 📌 pnpm
+### pnpm
 Uma alternativa mais recente que economiza espaço em disco utilizando links simbólicos para evitar duplicação de pacotes.
 
 #### Vantagens:
-- **💾 Economia de espaço**: Compartilha pacotes entre projetos
-- **⚡ Instalação rápida**: Geralmente mais rápido que npm e yarn
-- **🔄 Compatibilidade**: Usa os mesmos comandos do npm
+- **Economia de espaço**: Compartilha pacotes entre projetos
+- **Instalação rápida**: Geralmente mais rápido que npm e yarn
+- **Compatibilidade**: Usa os mesmos comandos do npm
 
-## 📊 Comparação entre Gerenciadores
+## Comparação entre Gerenciadores
 
 | Característica | npm | Yarn | pnpm |
 |----------------|-----|------|------|
@@ -141,16 +141,16 @@ Uma alternativa mais recente que economiza espaço em disco utilizando links sim
 | Instalação paralela | Sim | Sim | Sim |
 | Workspace | Sim | Sim | Sim |
 
-## 💡 Dicas e Boas Práticas
+## Dicas e Boas Práticas
 
-- **🔒 Fixe as versões** das dependências para evitar problemas com atualizações incompatíveis
-- **📋 Documente as dependências** adicionando-as ao package.json
-- **👥 Use scripts personalizados** para automatizar tarefas comuns
+- **Fixe as versões** das dependências para evitar problemas com atualizações incompatíveis
+- **Documente as dependências** adicionando-as ao package.json
+- **Use scripts personalizados** para automatizar tarefas comuns
 - **⚠️ Audite sua segurança** regularmente com `npm audit` ou `yarn audit`
-- **🧹 Limpe o cache** ocasionalmente para liberar espaço com `npm cache clean --force`
+- **Limpe o cache** ocasionalmente para liberar espaço com `npm cache clean --force`
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

@@ -1,15 +1,15 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# ⚙️ Características do Node.js
+# Características do Node.js
 
-## 🧠 Arquitetura Baseada em Eventos
+## Arquitetura Baseada em Eventos
 
-### 🔄 Event Loop
+### Event Loop
 O Event Loop é o coração do Node.js, responsável por gerenciar e processar eventos assíncronos. Ele:
-- **🔍 Monitora** constantemente a fila de eventos
-- **📥 Recebe** eventos e callbacks do Event Queue
-- **📤 Delega** operações de I/O para o sistema operacional
-- **⚡ Executa** callbacks quando operações são concluídas
+- **Monitora** constantemente a fila de eventos
+- **Recebe** eventos e callbacks do Event Queue
+- **Delega** operações de I/O para o sistema operacional
+- **Executa** callbacks quando operações são concluídas
 
 ```javascript
 // Exemplo simplificado do Event Loop
@@ -27,14 +27,14 @@ console.log('Fim');
 // Executado após 2 segundos
 ```
 
-## 👨‍💻 Programação Assíncrona
+## Programação Assíncrona
 
-### ⚡ Non-Blocking I/O
+### Non-Blocking I/O
 Uma das principais características do Node.js é sua natureza não-bloqueante:
 
-- **📈 Eficiência**: Permite lidar com várias operações simultaneamente
-- **🔄 Continuidade**: O programa continua executando enquanto espera operações de I/O
-- **💪 Escalabilidade**: Possibilita atender muitas requisições concorrentes
+- **Eficiência**: Permite lidar com várias operações simultaneamente
+- **Continuidade**: O programa continua executando enquanto espera operações de I/O
+- **Escalabilidade**: Possibilita atender muitas requisições concorrentes
 
 ```javascript
 // Exemplo de operação não-bloqueante
@@ -50,15 +50,15 @@ fs.readFile('arquivo.txt', 'utf8', (err, data) => {
 console.log('Continuando execução enquanto o arquivo é lido...');
 ```
 
-## 🧵 Single-Threaded
+## Single-Threaded
 
 Node.js opera principalmente em uma única thread, mas consegue alta performance através de:
 
-- **🔄 Event Loop**: Gerencia múltiplas operações assíncronas
-- **🧰 Thread Pool**: Para operações pesadas (gerenciado pela libuv)
-- **📡 Delegação**: Operações de I/O são delegadas ao sistema operacional
+- **Event Loop**: Gerencia múltiplas operações assíncronas
+- **Thread Pool**: Para operações pesadas (gerenciado pela libuv)
+- **Delegação**: Operações de I/O são delegadas ao sistema operacional
 
-### 🌊 Thread Pool (libuv)
+### Thread Pool (libuv)
 ```javascript
 // Operações que utilizam o thread pool
 const crypto = require('crypto');
@@ -70,11 +70,11 @@ const hash2 = crypto.pbkdf2Sync('senha456', 'salt', 100000, 512, 'sha512');
 console.log('Operações de hash concluídas');
 ```
 
-## 📦 Sistema de Módulos
+## Sistema de Módulos
 
 O Node.js utiliza um sistema de módulos que permite organizar o código em partes reutilizáveis:
 
-### 🏗️ CommonJS
+### CommonJS
 ```javascript
 // Exportando módulos (module.exports)
 // arquivo: matematica.js
@@ -94,7 +94,7 @@ const matematica = require('./matematica');
 console.log(matematica.somar(5, 3)); // 8
 ```
 
-### 🔄 ES Modules
+### ES Modules
 ```javascript
 // Exportando (ESM)
 // arquivo: matematica.mjs
@@ -108,21 +108,21 @@ import { somar } from './matematica.mjs';
 console.log(somar(5, 3)); // 8
 ```
 
-## 🔍 Garbage Collection
+## Garbage Collection
 
 Node.js herda o sistema de gerenciamento de memória do V8:
 
-- **🧹 Automático**: Libera memória de objetos não utilizados 
-- **🔄 Incremental**: Minimiza pausas na execução do programa
-- **🚀 Otimizado**: Algoritmos sofisticados de coleta de lixo
+- **Automático**: Libera memória de objetos não utilizados
+- **Incremental**: Minimiza pausas na execução do programa
+- **Otimizado**: Algoritmos sofisticados de coleta de lixo
 
-## 🌐 Escalabilidade
+## Escalabilidade
 
 Node.js é altamente escalável devido a:
 
-- **🔀 Arquitetura assíncrona**: Muitas conexões simultâneas
-- **📡 Módulo Cluster**: Aproveita múltiplos núcleos de CPU
-- **🔄 Balanceamento de carga**: Distribui requisições entre processos
+- **Arquitetura assíncrona**: Muitas conexões simultâneas
+- **Módulo Cluster**: Aproveita múltiplos núcleos de CPU
+- **Balanceamento de carga**: Distribui requisições entre processos
 
 ```javascript
 // Exemplo de uso do módulo Cluster
@@ -153,7 +153,7 @@ if (cluster.isMaster) {
 }
 ```
 
-## 📊 Comparação com Outras Plataformas
+## Comparação com Outras Plataformas
 
 | Característica | Node.js | PHP | Python | Java |
 |----------------|---------|-----|--------|------|
@@ -163,22 +163,22 @@ if (cluster.isMaster) {
 | Escalabilidade | Excelente | Boa | Boa | Excelente |
 | Curva de aprendizado | Moderada | Baixa | Baixa | Alta |
 
-## 💡 Quando Usar Node.js?
+## Quando Usar Node.js?
 
 ### ✅ Ideal para:
-- **📱 APIs RESTful**: Resposta rápida, alta concorrência
-- **🗣️ Aplicações em tempo real**: Chats, jogos, colaboração
-- **📊 Dashboards**: Atualizações contínuas de dados
-- **🔄 Streaming de dados**: Processamento de fluxos contínuos
-- **🛠️ Ferramentas de linha de comando**: Scripts de automação
+- **APIs RESTful**: Resposta rápida, alta concorrência
+- **Aplicações em tempo real**: Chats, jogos, colaboração
+- **Dashboards**: Atualizações contínuas de dados
+- **Streaming de dados**: Processamento de fluxos contínuos
+- **Ferramentas de linha de comando**: Scripts de automação
 
 ### ❌ Menos indicado para:
-- **🧮 Processamento intensivo de CPU**: Cálculos complexos
-- **🖥️ Aplicações CRUD simples**: Pode ser excessivo
-- **⚙️ Operações bloqueantes**: Afeta todo o sistema
+- **Processamento intensivo de CPU**: Cálculos complexos
+- **Aplicações CRUD simples**: Pode ser excessivo
+- **Operações bloqueantes**: Afeta todo o sistema
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

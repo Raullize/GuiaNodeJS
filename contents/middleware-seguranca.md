@@ -1,20 +1,20 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🔐 Middleware e Segurança
+# Middleware e Segurança
 
-## 🤔 O que são Middlewares?
+## O que são Middlewares?
 
 Middlewares são funções que têm acesso ao objeto de requisição (req), ao objeto de resposta (res) e à próxima função middleware no ciclo de requisição-resposta da aplicação. Eles podem executar código, modificar os objetos de requisição e resposta, encerrar o ciclo, ou chamar o próximo middleware.
 
-### 🔹 Funções de um Middleware:
-- **🔄 Execução de código**: Executar qualquer código antes da rota final
-- **📝 Modificação de objetos**: Alterar requisições e respostas
-- **✋ Encerramento do ciclo**: Finalizar o processo de requisição-resposta
-- **⏭️ Chamada do próximo middleware**: Passar o controle para a próxima função middleware
+### Funções de um Middleware:
+- **Execução de código**: Executar qualquer código antes da rota final
+- **Modificação de objetos**: Alterar requisições e respostas
+- **Encerramento do ciclo**: Finalizar o processo de requisição-resposta
+- **Chamada do próximo middleware**: Passar o controle para a próxima função middleware
 
-## 📚 Tipos de Middlewares no Express
+## Tipos de Middlewares no Express
 
-### 🌐 Middleware de Aplicação
+### Middleware de Aplicação
 ```javascript
 const express = require('express');
 const app = express();
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 app.listen(3000);
 ```
 
-### 🔄 Middleware de Rota
+### Middleware de Rota
 ```javascript
 // Middleware que será aplicado apenas a uma rota específica
 app.get('/usuarios', (req, res, next) => {
@@ -43,7 +43,7 @@ app.get('/usuarios', (req, res, next) => {
 });
 ```
 
-### 📚 Middleware de Manipulação de Erros
+### Middleware de Manipulação de Erros
 ```javascript
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -51,14 +51,14 @@ app.use((err, req, res, next) => {
 });
 ```
 
-## 🛡️ Segurança em Aplicações Node.js
+## Segurança em Aplicações Node.js
 
-### 🔒 Principais Vulnerabilidades e Proteções
+### Principais Vulnerabilidades e Proteções
 
-#### 1. ⚡ Injeção (SQL, NoSQL, Command)
+#### 1. Injeção (SQL, NoSQL, Command)
 Ocorre quando dados não confiáveis são enviados para um interpretador como parte de um comando.
 
-**🛠️ Proteção**:
+**Proteção**:
 - Utilize consultas parametrizadas ou ORM (Sequelize, Mongoose)
 - Valide e sanitize as entradas do usuário
 - Use bibliotecas como `express-validator`
@@ -89,10 +89,10 @@ app.post('/usuarios',
 );
 ```
 
-#### 2. 🔑 Falhas de Autenticação
+#### 2. Falhas de Autenticação
 Problemas na implementação de mecanismos que controlam identidade.
 
-**🛠️ Proteção**:
+**Proteção**:
 - Utilize bibliotecas maduras (Passport.js, JWT)
 - Implemente bloqueio após tentativas falhas
 - Use HTTPS para todas as comunicações
@@ -113,10 +113,10 @@ const verificarSenha = async (senha, hash) => {
 };
 ```
 
-#### 3. 🔀 Cross-Site Scripting (XSS)
+#### 3. Cross-Site Scripting (XSS)
 Ocorre quando aplicações recebem dados não confiáveis e os enviam para o navegador sem validação.
 
-**🛠️ Proteção**:
+**Proteção**:
 - Use o middleware Helmet
 - Escape todas as saídas de dados
 - Implemente Content Security Policy (CSP)
@@ -139,10 +139,10 @@ app.use(
 );
 ```
 
-#### 4. 🌐 Cross-Site Request Forgery (CSRF)
+#### 4. Cross-Site Request Forgery (CSRF)
 Ataques que forçam o usuário logado a executar ações não intencionais.
 
-**🛠️ Proteção**:
+**Proteção**:
 - Use tokens CSRF
 - Verifique o cabeçalho Origin/Referer
 
@@ -165,10 +165,10 @@ app.post('/processo', (req, res) => {
 });
 ```
 
-#### 5. 🔓 Exposição de Dados Sensíveis
+#### 5. Exposição de Dados Sensíveis
 Falta de proteção adequada de informações sensíveis.
 
-**🛠️ Proteção**:
+**Proteção**:
 - Utilize HTTPS com configuração adequada
 - Não armazene dados sensíveis desnecessariamente
 - Use bibliotecas de criptografia para dados sensíveis
@@ -201,9 +201,9 @@ const descriptografar = (texto, chave) => {
 };
 ```
 
-## 🛠️ Middlewares de Segurança Essenciais
+## Middlewares de Segurança Essenciais
 
-### 🛡️ Helmet - Proteção por Cabeçalhos HTTP
+### Helmet - Proteção por Cabeçalhos HTTP
 Helmet ajuda a proteger aplicações Express configurando vários cabeçalhos HTTP relacionados à segurança.
 
 ```bash
@@ -233,25 +233,25 @@ app.use(
 );
 ```
 
-### 🌐 CORS (Cross-Origin Resource Sharing)
+### CORS (Cross-Origin Resource Sharing)
 
-### 🤔 O que é CORS?
+### O que é CORS?
 CORS é um mecanismo de segurança que permite que recursos restritos em uma página web sejam acessados por outro domínio fora do domínio ao qual pertence o recurso.
 
-### 📦 Instalação
+### Instalação
 ```bash
 npm install cors
 ```
 
-### 🔧 Configurações Básicas
+### Configurações Básicas
 
-#### 🔹 Permitir Todos os Domínios (Não recomendado para produção)
+#### Permitir Todos os Domínios (Não recomendado para produção)
 ```javascript
 const cors = require('cors');
 app.use(cors());
 ```
 
-#### 🔹 Configuração com Opções Específicas
+#### Configuração com Opções Específicas
 ```javascript
 const corsOptions = {
   origin: 'https://meuapp.com',
@@ -265,9 +265,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 ```
 
-### 📋 Exemplos de Configurações
+### Exemplos de Configurações
 
-#### 🔸 Múltiplos Domínios
+#### Múltiplos Domínios
 ```javascript
 const corsOptions = {
   origin: [
@@ -281,7 +281,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 ```
 
-#### 🔸 Função de Validação de Origem
+#### Função de Validação de Origem
 ```javascript
 const corsOptions = {
   origin: function (origin, callback) {
@@ -301,7 +301,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 ```
 
-#### 🔸 Configuração por Rota
+#### Configuração por Rota
 ```javascript
 // Rota sem CORS
 app.get('/api/publica', (req, res) => {
@@ -314,9 +314,9 @@ app.get('/api/privada', cors(corsOptions), (req, res) => {
 });
 ```
 
-### 🔒 Configurações de Segurança
+### Configurações de Segurança
 
-#### 🔹 Produção
+#### Produção
 ```javascript
 const corsOptions = {
   origin: process.env.ALLOWED_ORIGINS.split(','),
@@ -331,7 +331,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 ```
 
-#### 🔹 Desenvolvimento
+#### Desenvolvimento
 ```javascript
 const corsOptions = {
   origin: 'http://localhost:3000',
@@ -346,7 +346,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 ```
 
-### 🚫 Tratamento de Erros CORS
+### Tratamento de Erros CORS
 ```javascript
 app.use((err, req, res, next) => {
   if (err.message === 'Bloqueado pelo CORS') {
@@ -359,7 +359,7 @@ app.use((err, req, res, next) => {
 });
 ```
 
-### 📝 Boas Práticas
+### Boas Práticas
 1. **Nunca use `cors()` sem opções em produção**
 2. **Sempre especifique origens permitidas**
 3. **Use variáveis de ambiente para configurações**
@@ -367,7 +367,7 @@ app.use((err, req, res, next) => {
 5. **Configure headers adequadamente**
 6. **Use HTTPS em produção**
 
-### 🔍 Headers CORS Importantes
+### Headers CORS Importantes
 ```javascript
 const corsOptions = {
   allowedHeaders: [
@@ -389,9 +389,9 @@ const corsOptions = {
 };
 ```
 
-### 🌍 Exemplos de Casos de Uso
+### Exemplos de Casos de Uso
 
-#### 🔸 API Pública
+#### API Pública
 ```javascript
 app.use(cors({
   origin: '*',
@@ -400,7 +400,7 @@ app.use(cors({
 }));
 ```
 
-#### 🔸 API com Autenticação
+#### API com Autenticação
 ```javascript
 app.use(cors({
   origin: process.env.CLIENT_URL,
@@ -410,7 +410,7 @@ app.use(cors({
 }));
 ```
 
-#### 🔸 API com Múltiplos Clientes
+#### API com Múltiplos Clientes
 ```javascript
 const clientes = new Map([
   ['cliente1', { origin: 'https://cliente1.com', methods: ['GET', 'POST'] }],
@@ -432,7 +432,7 @@ app.use((req, res, next) => {
 });
 ```
 
-### 🔐 Express-Rate-Limit - Proteção contra Ataques de Força Bruta
+### Express-Rate-Limit - Proteção contra Ataques de Força Bruta
 Limita o número de requisições que um cliente pode fazer em um determinado período.
 
 ```bash
@@ -466,7 +466,7 @@ app.post('/login', loginLimiter, (req, res) => {
 });
 ```
 
-### 📦 HPP - Proteção contra Poluição de Parâmetros HTTP
+### HPP - Proteção contra Poluição de Parâmetros HTTP
 Protege contra ataques de poluição de parâmetros, evitando a substituição de parâmetros por valores maliciosos.
 
 ```bash
@@ -480,7 +480,7 @@ const hpp = require('hpp');
 app.use(hpp());
 ```
 
-### ⚙️ Express-Validator - Validação e Sanitização
+### Express-Validator - Validação e Sanitização
 Middleware para validação e sanitização de dados de entrada.
 
 ```bash
@@ -513,21 +513,21 @@ app.post(
 );
 ```
 
-## 📊 Checklist de Segurança para Aplicações Node.js
+## Checklist de Segurança para Aplicações Node.js
 
-1. **🔒 Utilize HTTPS** em ambiente de produção
-2. **🛡️ Implemente os middlewares de segurança** (Helmet, CORS, etc.)
+1. **Utilize HTTPS** em ambiente de produção
+2. **Implemente os middlewares de segurança** (Helmet, CORS, etc.)
 3. **✅ Valide todas as entradas do usuário** (express-validator)
-4. **🔍 Limite as taxas de requisição** (express-rate-limit)
-5. **🧪 Monitore as dependências** (npm audit, Snyk)
-6. **📦 Mantenha as dependências atualizadas**
-7. **⚙️ Utilize um processo de gerenciamento** como PM2
-8. **📝 Implemente logging de segurança**
-9. **🔐 Utilize variáveis de ambiente** para configurações sensíveis
-10. **📚 Implemente tratamento adequado de erros**
+4. **Limite as taxas de requisição** (express-rate-limit)
+5. **Monitore as dependências** (npm audit, Snyk)
+6. **Mantenha as dependências atualizadas**
+7. **Utilize um processo de gerenciamento** como PM2
+8. **Implemente logging de segurança**
+9. **Utilize variáveis de ambiente** para configurações sensíveis
+10. **Implemente tratamento adequado de erros**
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

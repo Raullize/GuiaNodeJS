@@ -1,11 +1,11 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🔢 Códigos de Status HTTP
+# Códigos de Status HTTP
 
-## 🔍 O que são Códigos de Status HTTP?
+## O que são Códigos de Status HTTP?
 Os códigos de status HTTP são números padronizados retornados pelos servidores web para informar o resultado de uma requisição. Eles são fundamentais para o desenvolvimento de APIs, pois comunicam claramente ao cliente se a requisição foi bem-sucedida ou se ocorreu algum erro.
 
-## 🗂️ Categorias de Códigos
+## Categorias de Códigos
 
 Os códigos de status são agrupados em cinco categorias, cada uma representada pelo primeiro dígito:
 
@@ -17,9 +17,9 @@ Os códigos de status são agrupados em cinco categorias, cada uma representada 
 | **4xx** | Erro do cliente | Problema na requisição |
 | **5xx** | Erro do servidor | Problema no servidor |
 
-## 📋 Códigos mais comuns e suas aplicações
+## Códigos mais comuns e suas aplicações
 
-### ℹ️ 1xx - Informativos
+### 1xx - Informativos
 Estes códigos indicam que a requisição foi recebida e o processo continua.
 
 - **100 Continue**: O servidor recebeu os cabeçalhos da requisição e o cliente deve continuar enviando o corpo da requisição
@@ -34,7 +34,7 @@ Indica que a requisição foi recebida, compreendida e aceita com sucesso.
 - **204 No Content**: A requisição foi bem-sucedida, mas não há conteúdo para retornar (usado em DELETE)
 - **206 Partial Content**: Entrega parcial do recurso solicitado
 
-### 🔄 3xx - Redirecionamento
+### 3xx - Redirecionamento
 Indica que ações adicionais precisam ser tomadas para completar a requisição.
 
 - **301 Moved Permanently**: O recurso foi movido permanentemente para outra URL
@@ -56,7 +56,7 @@ Indica que houve um erro na requisição feita pelo cliente.
 - **422 Unprocessable Entity**: A requisição está bem formada, mas contém erros semânticos
 - **429 Too Many Requests**: O cliente enviou muitas requisições em um determinado período
 
-### 🔧 5xx - Erros do Servidor
+### 5xx - Erros do Servidor
 Indica que o servidor falhou ao processar uma requisição aparentemente válida.
 
 - **500 Internal Server Error**: Erro genérico no servidor
@@ -65,9 +65,9 @@ Indica que o servidor falhou ao processar uma requisição aparentemente válida
 - **503 Service Unavailable**: O servidor não está pronto para lidar com a requisição (sobrecarga ou manutenção)
 - **504 Gateway Timeout**: O servidor, enquanto atuando como gateway, não recebeu resposta a tempo
 
-## 💻 Exemplos Práticos em Node.js com Express
+## Exemplos Práticos em Node.js com Express
 
-### 🎯 Cenários de Sucesso (2xx)
+### Cenários de Sucesso (2xx)
 
 ```javascript
 // 200 OK - Busca bem-sucedida
@@ -121,7 +121,7 @@ app.delete('/api/usuarios/:id', async (req, res) => {
 });
 ```
 
-### 🔄 Cenários de Redirecionamento (3xx)
+### Cenários de Redirecionamento (3xx)
 
 ```javascript
 // 301 Moved Permanently - API versionada
@@ -339,7 +339,7 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 ```
 
-### 🔧 Cenários de Erro do Servidor (5xx)
+### Cenários de Erro do Servidor (5xx)
 
 ```javascript
 // 500 Internal Server Error - Erro genérico
@@ -428,83 +428,83 @@ app.get('/api/dados-externos', async (req, res) => {
 });
 ```
 
-## 📊 Guia Completo de Uso dos Códigos de Status
+## Guia Completo de Uso dos Códigos de Status
 
-### 🎯 Quando usar cada código - Cenários Específicos
+### Quando usar cada código - Cenários Específicos
 
 #### ✅ Códigos 2xx - Sucesso
-- **200 OK**: 
+- **200 OK**:
   - ✅ GET que retorna dados
   - ✅ PUT que atualiza recurso existente
   - ✅ PATCH que modifica parcialmente um recurso
-- **201 Created**: 
+- **201 Created**:
   - ✅ POST que cria novo recurso
   - ✅ Sempre incluir header `Location` com URL do novo recurso
-- **202 Accepted**: 
+- **202 Accepted**:
   - ✅ Operações assíncronas (envio de email, processamento de imagem)
   - ✅ Uploads grandes que serão processados em background
-- **204 No Content**: 
+- **204 No Content**:
   - ✅ DELETE bem-sucedido
   - ✅ PUT que não retorna dados
   - ✅ Operações que não precisam retornar conteúdo
 
-#### 🔄 Códigos 3xx - Redirecionamento
-- **301 Moved Permanently**: 
+#### Códigos 3xx - Redirecionamento
+- **301 Moved Permanently**:
   - ✅ Mudança definitiva de URL da API
   - ✅ Migração de versões antigas
-- **302 Found**: 
+- **302 Found**:
   - ✅ Redirecionamento temporário
   - ✅ Balanceamento de carga
-- **304 Not Modified**: 
+- **304 Not Modified**:
   - ✅ Cache condicional com ETags
   - ✅ Otimização de bandwidth
 
 #### ❌ Códigos 4xx - Erros do Cliente
-- **400 Bad Request**: 
+- **400 Bad Request**:
   - ✅ JSON malformado
   - ✅ Parâmetros obrigatórios ausentes
   - ✅ Tipos de dados incorretos
-- **401 Unauthorized**: 
+- **401 Unauthorized**:
   - ✅ Token ausente ou inválido
   - ✅ Credenciais incorretas
   - ✅ Sessão expirada
-- **403 Forbidden**: 
+- **403 Forbidden**:
   - ✅ Usuário autenticado mas sem permissão
   - ✅ Acesso a recurso restrito
   - ✅ Operação não permitida para o role do usuário
-- **404 Not Found**: 
+- **404 Not Found**:
   - ✅ Recurso não existe
   - ✅ Endpoint não implementado
   - ❌ NÃO usar para problemas de autorização
-- **409 Conflict**: 
+- **409 Conflict**:
   - ✅ Email já cadastrado
   - ✅ Violação de constraint única
   - ✅ Estado inconsistente do recurso
-- **422 Unprocessable Entity**: 
+- **422 Unprocessable Entity**:
   - ✅ Dados válidos mas regras de negócio violadas
   - ✅ Relacionamentos inválidos
   - ✅ Validações semânticas
-- **429 Too Many Requests**: 
+- **429 Too Many Requests**:
   - ✅ Rate limiting atingido
   - ✅ Proteção contra spam/DDoS
 
-#### 🔧 Códigos 5xx - Erros do Servidor
-- **500 Internal Server Error**: 
+#### Códigos 5xx - Erros do Servidor
+- **500 Internal Server Error**:
   - ✅ Exceções não tratadas
   - ✅ Erros de banco de dados
   - ✅ Falhas inesperadas
-- **502 Bad Gateway**: 
+- **502 Bad Gateway**:
   - ✅ Serviço externo indisponível
   - ✅ Proxy/Gateway com problemas
-- **503 Service Unavailable**: 
+- **503 Service Unavailable**:
   - ✅ Manutenção programada
   - ✅ Sobrecarga temporária
   - ✅ Recursos esgotados
-- **504 Gateway Timeout**: 
+- **504 Gateway Timeout**:
   - ✅ Timeout em serviços externos
   - ✅ Operações que demoram muito
 
-### 🛠️ Middleware para Tratamento Centralizado de Erros
+### Middleware para Tratamento Centralizado de Erros
 
 ```javascript
 // Middleware de tratamento de erros
@@ -569,7 +569,7 @@ app.use((err, req, res, next) => {
 });
 ```
 
-### 📋 Checklist para APIs bem projetadas
+### Checklist para APIs bem projetadas
 
 #### ✅ Boas práticas obrigatórias:
 - **Use códigos específicos** em vez de apenas 200 ou 500
@@ -593,7 +593,7 @@ app.use((err, req, res, next) => {
 - ❌ Inconsistência entre endpoints similares
 - ❌ Não incluir informações úteis para debugging
 
-### 🧪 Testando Códigos de Status
+### Testando Códigos de Status
 
 ```javascript
 // Exemplo de testes com Jest
@@ -631,7 +631,7 @@ describe('API Status Codes', () => {
 });
 ```
 
-### 📚 Recursos Adicionais
+### Recursos Adicionais
 
 - **RFC 7231**: Especificação oficial dos códigos de status HTTP
 - **MDN Web Docs**: Documentação completa sobre códigos HTTP
@@ -640,6 +640,6 @@ describe('API Status Codes', () => {
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

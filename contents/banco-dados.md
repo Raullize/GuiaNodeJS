@@ -1,35 +1,35 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🗄️ Conectando ao Banco de Dados
+# Conectando ao Banco de Dados
 
-## 🤔 Bancos de Dados com Node.js
+## Bancos de Dados com Node.js
 O Node.js é altamente versátil quando se trata de interação com bancos de dados, permitindo conexões com praticamente qualquer sistema de gerenciamento de dados, seja SQL ou NoSQL.
 
-### 📊 Tipos de Bancos de Dados
+### Tipos de Bancos de Dados
 
-#### 🔢 Bancos de Dados Relacionais (SQL)
+#### Bancos de Dados Relacionais (SQL)
 - **MySQL**: Sistema robusto e amplamente utilizado
 - **PostgreSQL**: Banco relacional avançado com recursos poderosos
 - **SQLite**: Solução leve ideal para aplicações menores
 - **MariaDB**: Fork do MySQL com recursos adicionais
 
-#### 📄 Bancos de Dados NoSQL
+#### Bancos de Dados NoSQL
 - **MongoDB**: Banco orientado a documentos (JSON/BSON)
 - **Redis**: Armazenamento chave-valor em memória
 - **Cassandra**: Banco de dados distribuído para grandes volumes
 - **Firebase Firestore**: Banco NoSQL em nuvem da Google
 
-## 🔄 Conectando a Bancos de Dados
+## Conectando a Bancos de Dados
 
-### 🌿 MongoDB com Mongoose
+### MongoDB com Mongoose
 Mongoose é uma biblioteca ODM (Object Data Modeling) para MongoDB e Node.js que proporciona uma solução direta para modelar dados de aplicação.
 
-#### 📦 Instalação
+#### Instalação
 ```bash
 npm install mongoose
 ```
 
-#### 🔌 Configuração da Conexão
+#### Configuração da Conexão
 ```javascript
 // db/connection.js
 const mongoose = require('mongoose');
@@ -51,7 +51,7 @@ const conectarBancoDados = async () => {
 module.exports = conectarBancoDados;
 ```
 
-#### 📋 Definindo um Modelo (Schema)
+#### Definindo um Modelo (Schema)
 ```javascript
 // models/Usuario.js
 const mongoose = require('mongoose');
@@ -102,7 +102,7 @@ UsuarioSchema.pre('save', async function(next) {
 module.exports = mongoose.model('Usuario', UsuarioSchema);
 ```
 
-#### 🔍 Operações CRUD
+#### Operações CRUD
 ```javascript
 // controllers/usuariosController.js
 const Usuario = require('../models/Usuario');
@@ -219,16 +219,16 @@ exports.excluirUsuario = async (req, res) => {
 };
 ```
 
-### 🔍 MySQL com Sequelize
+### MySQL com Sequelize
 Sequelize é um ORM (Object-Relational Mapping) baseado em Promises para Node.js, que suporta PostgreSQL, MySQL, MariaDB, SQLite e Microsoft SQL Server.
 
-#### 📦 Instalação
+#### Instalação
 ```bash
 npm install sequelize mysql2
 # ou para PostgreSQL: npm install sequelize pg pg-hstore
 ```
 
-#### 🔌 Configuração da Conexão
+#### Configuração da Conexão
 ```javascript
 // db/connection.js
 const { Sequelize } = require('sequelize');
@@ -265,7 +265,7 @@ const testarConexao = async () => {
 module.exports = { sequelize, testarConexao };
 ```
 
-#### 📋 Definindo um Modelo
+#### Definindo um Modelo
 ```javascript
 // models/Usuario.js
 const { DataTypes } = require('sequelize');
@@ -338,7 +338,7 @@ Usuario.prototype.verificaSenha = async function(senhaFornecida) {
 module.exports = Usuario;
 ```
 
-#### 🔄 Inicialização de Modelos e Sincronização
+#### Inicialização de Modelos e Sincronização
 ```javascript
 // models/index.js
 const { sequelize } = require('../db/connection');
@@ -366,7 +366,7 @@ module.exports = {
 };
 ```
 
-#### 🔍 Operações CRUD com Sequelize
+#### Operações CRUD com Sequelize
 ```javascript
 // controllers/usuariosController.js
 const { Usuario } = require('../models');
@@ -496,9 +496,9 @@ exports.excluirUsuario = async (req, res) => {
 };
 ```
 
-## 🚀 Boas Práticas para Trabalhar com Bancos de Dados
+## Boas Práticas para Trabalhar com Bancos de Dados
 
-### 🔐 Segurança
+### Segurança
 1. **Nunca exponha credenciais do banco de dados** no código
    - Use variáveis de ambiente (.env)
    ```javascript
@@ -515,7 +515,7 @@ exports.excluirUsuario = async (req, res) => {
 
 3. **Valide todos os dados** antes de manipular o banco de dados
 
-### 🛠️ Performance
+### Performance
 1. **Use índices adequadamente** para consultas frequentes
    ```javascript
    // Exemplo com MongoDB/Mongoose
@@ -527,7 +527,7 @@ exports.excluirUsuario = async (req, res) => {
        index: true // Adiciona índice para buscas mais rápidas
      }
    });
-   
+  
    // Exemplo com Sequelize
    const Usuario = sequelize.define('Usuario', {
      email: {
@@ -547,15 +547,15 @@ exports.excluirUsuario = async (req, res) => {
 3. **Utilize caching quando apropriado**
    - Redis é uma excelente opção para caching
 
-### 📊 Modelagem
+### Modelagem
 1. **Mantenha um bom equilíbrio entre normalização e desnormalização**
 2. **Defina relacionamentos adequadamente**
 3. **Use transações** para operações que modificam múltiplas entidades
 
-### 🔄 Migrations
+### Migrations
 Migrations são essenciais para controlar alterações no esquema do banco de dados.
 
-#### 🛠️ Exemplo com Sequelize CLI
+#### Exemplo com Sequelize CLI
 ```bash
 npm install -g sequelize-cli
 npm install --save-dev sequelize-cli
@@ -621,20 +621,20 @@ module.exports = {
 };
 ```
 
-## 🌱 Tecnologias de Banco de Dados em Evolução
+## Tecnologias de Banco de Dados em Evolução
 
-### 🔁 ORMs/ODMs Alternativos
+### ORMs/ODMs Alternativos
 - **Prisma**: ORM de próxima geração com foco em type safety
 - **TypeORM**: ORM para TypeScript e JavaScript
 - **Knex.js**: Query builder SQL flexível
 
-### 📲 Bancos de Dados Modernos
+### Bancos de Dados Modernos
 - **Fauna**: Banco de dados nativo para serverless
 - **Supabase**: Alternativa de código aberto ao Firebase
 - **Deno KV**: Armazenamento chave-valor para Deno
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

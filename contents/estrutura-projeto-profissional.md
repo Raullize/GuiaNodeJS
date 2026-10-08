@@ -1,12 +1,12 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🏗️ Estruturando Projetos Node.js de Forma Profissional
+# Estruturando Projetos Node.js de Forma Profissional
 
-## 🎯 Introdução
+## Introdução
 
 Este guia apresenta as melhores práticas e ferramentas essenciais para estruturar projetos Node.js de forma profissional, garantindo qualidade, manutenibilidade e escalabilidade. Uma boa estrutura de projeto é fundamental para o sucesso a longo prazo, facilitando a manutenção, colaboração e escalabilidade da aplicação.
 
-## 📦 Gerenciamento de Dependências com NPM
+## Gerenciamento de Dependências com NPM
 
 O NPM (Node Package Manager) é fundamental para gerenciar dependências e scripts do projeto. Uma configuração adequada do `package.json` é crucial para:
 
@@ -16,7 +16,7 @@ O NPM (Node Package Manager) é fundamental para gerenciar dependências e scrip
 - Documentar o projeto
 - Facilitar a colaboração entre desenvolvedores
 
-### 📝 Estrutura Recomendada do package.json
+### Estrutura Recomendada do package.json
 
 ```json
 {
@@ -43,7 +43,7 @@ O NPM (Node Package Manager) é fundamental para gerenciar dependências e scrip
 }
 ```
 
-## 📁 Estrutura de Diretórios
+## Estrutura de Diretórios
 
 Uma estrutura de diretórios bem organizada é crucial para a manutenibilidade do projeto. Ela deve refletir a arquitetura da aplicação e facilitar a localização de arquivos. Cada diretório tem um propósito específico:
 
@@ -67,9 +67,9 @@ projeto/
 └── README.md           # 📖 Documentação principal
 ```
 
-## ⚙️ Configuração de Ambiente
+## Configuração de Ambiente
 
-### 🔑 Variáveis de Ambiente
+### Variáveis de Ambiente
 
 As variáveis de ambiente são fundamentais para configurar diferentes ambientes (desenvolvimento, produção, teste) sem modificar o código. O arquivo `.env` armazena configurações sensíveis e específicas de cada ambiente:
 
@@ -101,7 +101,7 @@ JWT_EXPIRES_IN=1d
 API_KEY=sua_chave_aqui
 ```
 
-### ✨ Configuração do ESLint
+### Configuração do ESLint
 
 O ESLint é uma ferramenta essencial para manter a qualidade e consistência do código. Ele ajuda a:
 
@@ -139,9 +139,9 @@ module.exports = {
 };
 ```
 
-## 🔧 Git e Versionamento
+## Git e Versionamento
 
-### 🚫 .gitignore
+### .gitignore
 
 O arquivo `.gitignore` é crucial para:
 
@@ -177,7 +177,7 @@ logs
 Thumbs.db
 ```
 
-### 🐶 Git Hooks com Husky
+### Git Hooks com Husky
 
 Os Git Hooks são scripts que são executados automaticamente em eventos específicos do Git. O Husky facilita a configuração desses hooks para:
 
@@ -206,22 +206,22 @@ Configure no `package.json`:
 }
 ```
 
-## 📚 Documentação
+## Documentação
 
-### 📖 README.md
+### README.md
 
 O README é a primeira impressão do seu projeto e deve conter:
 
-- 📝 **Descrição do projeto**: O que ele faz e por que existe
-- ⚙️ **Requisitos do sistema**: Node.js, banco de dados, etc
-- 📥 **Instalação**: Como configurar o ambiente
-- ⚙️ **Configuração**: Como configurar o projeto
-- 🚀 **Como executar**: Comandos para iniciar o projeto
-- 🧪 **Como testar**: Como executar os testes
-- 🤝 **Contribuição**: Como contribuir com o projeto
-- 📄 **Licença**: Informações sobre a licença
+- **Descrição do projeto**: O que ele faz e por que existe
+- **Requisitos do sistema**: Node.js, banco de dados, etc
+- **Instalação**: Como configurar o ambiente
+- **Configuração**: Como configurar o projeto
+- **Como executar**: Comandos para iniciar o projeto
+- **Como testar**: Como executar os testes
+- **Contribuição**: Como contribuir com o projeto
+- **Licença**: Informações sobre a licença
 
-### 📡 Documentação de API
+### Documentação de API
 
 A documentação da API é essencial para:
 
@@ -234,7 +234,7 @@ A documentação da API é essencial para:
 npm install --save-dev swagger-jsdoc swagger-ui-express
 ```
 
-## 🧪 Testes
+## Testes
 
 Os testes são fundamentais para garantir a qualidade e confiabilidade do código. Eles ajudam a:
 
@@ -266,7 +266,7 @@ Exemplo de configuração no `package.json`:
 }
 ```
 
-## 🐳 Docker
+## Docker
 
 O Docker permite criar ambientes de desenvolvimento consistentes e isolados. Benefícios:
 
@@ -314,7 +314,7 @@ services:
       - "27017:27017"
 ```
 
-## 📊 Logging e Monitoramento
+## Logging e Monitoramento
 
 Um sistema de logging robusto é essencial para:
 
@@ -348,16 +348,16 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-## 🔒 Segurança
+## Segurança
 
 A segurança é um aspecto crítico de qualquer aplicação. Boas práticas incluem:
 
-1. 🛡️ **Proteção HTTP** com helmet:
+1. **Proteção HTTP** com helmet:
 ```bash
 npm install helmet
 ```
 
-2. ⏱️ **Rate Limiting** para prevenir ataques:
+2. **Rate Limiting** para prevenir ataques:
 ```bash
 npm install express-rate-limit
 ```
@@ -367,26 +367,26 @@ npm install express-rate-limit
 npm install express-validator
 ```
 
-## ⚡ Performance
+## Performance
 
 Otimizações de performance são essenciais para uma boa experiência do usuário:
 
-1. 📦 **Compressão** para reduzir o tamanho das respostas:
+1. **Compressão** para reduzir o tamanho das respostas:
 ```bash
 npm install compression
 ```
 
-2. 💾 **Cache** para melhorar o tempo de resposta:
+2. **Cache** para melhorar o tempo de resposta:
 ```bash
 npm install node-cache
 ```
 
-3. 🌐 **CORS** configurado adequadamente:
+3. **CORS** configurado adequadamente:
 ```bash
 npm install cors
 ```
 
-## 🌱 Seeds
+## Seeds
 
 Os seeds são fundamentais para:
 
@@ -425,7 +425,7 @@ module.exports = {
 };
 ```
 
-## 📡 Coleção do Postman
+## Coleção do Postman
 
 O Postman é uma ferramenta essencial para desenvolvimento e testes de APIs. Benefícios:
 
@@ -435,7 +435,7 @@ O Postman é uma ferramenta essencial para desenvolvimento e testes de APIs. Ben
 - Testes automatizados
 - Ambiente de desenvolvimento consistente
 
-### 📁 Estrutura Recomendada
+### Estrutura Recomendada
 
 ```
 postman/
@@ -444,7 +444,7 @@ postman/
 └── tests/             # 🧪 Scripts de teste
 ```
 
-### ⚙️ Variáveis de Ambiente
+### Variáveis de Ambiente
 
 Configure variáveis para diferentes ambientes:
 
@@ -461,7 +461,7 @@ Configure variáveis para diferentes ambientes:
 }
 ```
 
-### 🧪 Testes Automatizados
+### Testes Automatizados
 
 Exemplo de testes no Postman:
 
@@ -484,27 +484,27 @@ pm.test("Response matches schema", function () {
 });
 ```
 
-## 🏁 Conclusão
+## Conclusão
 
 Seguindo estas práticas e utilizando as ferramentas recomendadas, você estará preparado para desenvolver e manter projetos Node.js profissionais, escaláveis e de alta qualidade. Lembre-se de adaptar estas recomendações às necessidades específicas do seu projeto.
 
 ---
 
-**📚 Leia também:**
-- [Guia de Boas Práticas em Node.js](./boas-praticas-nodejs.md)
+**Leia também:**
+- [Guia de Clean Code em Node.js](./clean-code-nodejs.md)
 - [Documentação Oficial do Node.js](https://nodejs.org/en/docs/)
 - [Documentação do Express.js](https://expressjs.com/)
 
-**🔗 Links Úteis:**
+**Links Úteis:**
 - [ESLint](https://eslint.org/)
 - [Jest](https://jestjs.io/)
 - [Docker](https://www.docker.com/)
 - [Postman](https://www.postman.com/)
 
-**💡 Dica:** Mantenha sua documentação sempre atualizada e compartilhe conhecimento com a equipe!
+**Dica:** Mantenha sua documentação sempre atualizada e compartilhe conhecimento com a equipe!
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

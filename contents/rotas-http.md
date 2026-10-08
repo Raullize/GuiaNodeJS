@@ -1,16 +1,16 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🛣️ Rotas e Métodos HTTP
+# Rotas e Métodos HTTP
 
-## 🔍 O que são Rotas HTTP?
+## O que são Rotas HTTP?
 
 Rotas HTTP são os caminhos (endpoints) que definem como os recursos podem ser acessados em uma aplicação web ou API. Uma rota é composta por um método HTTP e um caminho, como `GET /api/usuarios` ou `POST /api/produtos`.
 
-## 📡 Métodos HTTP
+## Métodos HTTP
 
 Os métodos HTTP definem a ação a ser realizada sobre um recurso. Cada método tem uma semântica específica:
 
-### 🔹 GET
+### GET
 Usado para **recuperar** dados de um recurso sem modificá-lo.
 
 ```http
@@ -18,12 +18,12 @@ GET /api/produtos/123
 ```
 
 Características:
-- 📖 Somente leitura (idempotente)
-- 🔒 Não altera o estado do servidor
-- 📎 Pode ser cacheado
-- 📝 Parâmetros são enviados na URL
+- Somente leitura (idempotente)
+- Não altera o estado do servidor
+- Pode ser cacheado
+- Parâmetros são enviados na URL
 
-### 🔹 POST
+### POST
 Usado para **criar** um novo recurso.
 
 ```http
@@ -38,12 +38,12 @@ Content-Type: application/json
 ```
 
 Características:
-- ✏️ Altera o estado do servidor
-- 🚫 Não é idempotente (cada requisição pode criar um novo recurso)
-- 📦 Dados enviados no corpo da requisição
-- 📝 Normalmente retorna o recurso criado com status 201
+- Altera o estado do servidor
+- Não é idempotente (cada requisição pode criar um novo recurso)
+- Dados enviados no corpo da requisição
+- Normalmente retorna o recurso criado com status 201
 
-### 🔹 PUT
+### PUT
 Usado para **atualizar completamente** um recurso existente.
 
 ```http
@@ -58,12 +58,12 @@ Content-Type: application/json
 ```
 
 Características:
-- 🔄 Substitui completamente o recurso existente
-- ♻️ É idempotente (múltiplas requisições têm o mesmo efeito)
-- 📦 Requer todos os dados do recurso
-- 📝 URL identifica o recurso específico a ser atualizado
+- Substitui completamente o recurso existente
+- É idempotente (múltiplas requisições têm o mesmo efeito)
+- Requer todos os dados do recurso
+- URL identifica o recurso específico a ser atualizado
 
-### 🔹 PATCH
+### PATCH
 Usado para **atualizar parcialmente** um recurso existente.
 
 ```http
@@ -76,11 +76,11 @@ Content-Type: application/json
 ```
 
 Características:
-- 🔄 Atualiza apenas os campos especificados
-- 📦 Requer apenas os dados que precisam ser atualizados
-- 📝 Útil para atualizações parciais ou incrementais
+- Atualiza apenas os campos especificados
+- Requer apenas os dados que precisam ser atualizados
+- Útil para atualizações parciais ou incrementais
 
-### 🔹 DELETE
+### DELETE
 Usado para **remover** um recurso.
 
 ```http
@@ -88,21 +88,21 @@ DELETE /api/produtos/123
 ```
 
 Características:
-- 🗑️ Remove o recurso especificado
-- ♻️ É idempotente (o resultado é o mesmo para múltiplas requisições)
-- 📝 Normalmente retorna status 204 (No Content) após sucesso
+- Remove o recurso especificado
+- É idempotente (o resultado é o mesmo para múltiplas requisições)
+- Normalmente retorna status 204 (No Content) após sucesso
 
-### 🔹 Outros Métodos
+### Outros Métodos
 - **HEAD**: Similar ao GET, mas retorna apenas cabeçalhos, sem corpo
 - **OPTIONS**: Retorna os métodos HTTP suportados pelo recurso
 - **TRACE**: Usado para diagnóstico, retorna a requisição como foi recebida pelo servidor
 - **CONNECT**: Estabelece um túnel para o servidor
 
-## 📋 Estrutura de Rotas em Express
+## Estrutura de Rotas em Express
 
 No Express, as rotas podem ser organizadas de várias formas:
 
-### 🔸 Método Básico
+### Método Básico
 
 ```javascript
 const express = require('express');
@@ -120,7 +120,7 @@ app.post('/usuario', (req, res) => {
 });
 ```
 
-### 🔸 Múltiplos Métodos para uma Rota
+### Múltiplos Métodos para uma Rota
 
 ```javascript
 app.route('/usuario')
@@ -142,7 +142,7 @@ app.route('/usuario')
   });
 ```
 
-### 🔸 Router do Express
+### Router do Express
 
 ```javascript
 // arquivo: routes/usuarios.js
@@ -173,9 +173,9 @@ const usuariosRouter = require('./routes/usuarios');
 app.use('/usuarios', usuariosRouter);
 ```
 
-## 🔀 Parâmetros e Consultas
+## Parâmetros e Consultas
 
-### 🔹 Parâmetros de Rota
+### Parâmetros de Rota
 
 Utilizados para identificar recursos específicos:
 
@@ -196,7 +196,7 @@ app.get('/categorias/:categoriaId/produtos/:produtoId', (req, res) => {
 });
 ```
 
-### 🔹 Parâmetros de Consulta (Query String)
+### Parâmetros de Consulta (Query String)
 
 Utilizados para filtrar, ordenar ou paginar resultados:
 
@@ -228,7 +228,7 @@ app.get('/produtos', (req, res) => {
 });
 ```
 
-## 📦 Corpo da Requisição
+## Corpo da Requisição
 
 Para receber dados enviados no corpo da requisição, é necessário usar middlewares:
 
@@ -261,9 +261,9 @@ app.post('/produtos', (req, res) => {
 });
 ```
 
-## 🔄 Respostas HTTP
+## Respostas HTTP
 
-### 🔹 Formatos de Resposta
+### Formatos de Resposta
 
 ```javascript
 // Resposta JSON
@@ -292,7 +292,7 @@ app.get('/perfil', (req, res) => {
 });
 ```
 
-### 🔹 Cabeçalhos Personalizados
+### Cabeçalhos Personalizados
 
 ```javascript
 app.get('/api/dados', (req, res) => {
@@ -305,7 +305,7 @@ app.get('/api/dados', (req, res) => {
 });
 ```
 
-## 🧰 Middleware para Rotas
+## Middleware para Rotas
 
 Os middlewares são funções que têm acesso ao objeto de requisição, ao objeto de resposta e à próxima função no ciclo de requisição-resposta:
 
@@ -347,28 +347,28 @@ rotasProtegidas.get('/relatorios', (req, res) => {
 app.use('/admin', rotasProtegidas);
 ```
 
-## 🧠 Melhores Práticas para Rotas
+## Melhores Práticas para Rotas
 
 ### ✅ Recomendações:
 
-- **📏 Use substantivos, não verbos** para rotas (ex: `/produtos` em vez de `/getProdutos`)
-- **🔢 Versione sua API** nos caminhos (ex: `/api/v1/produtos`)
-- **🔍 Implemente paginação** para coleções grandes de dados
-- **♻️ Organize rotas** em arquivos separados por domínio
-- **🔄 Respeite a semântica HTTP** dos métodos
-- **📄 Documente suas rotas** com ferramentas como Swagger
-- **📊 Use códigos de status HTTP** apropriados
+- **Use substantivos, não verbos** para rotas (ex: `/produtos` em vez de `/getProdutos`)
+- **Versione sua API** nos caminhos (ex: `/api/v1/produtos`)
+- **Implemente paginação** para coleções grandes de dados
+- **Organize rotas** em arquivos separados por domínio
+- **Respeite a semântica HTTP** dos métodos
+- **Documente suas rotas** com ferramentas como Swagger
+- **Use códigos de status HTTP** apropriados
 
 ### ❌ Práticas a evitar:
 
-- **🚫 Rotas muito longas** e complicadas
-- **⛔ Misturar responsabilidades** em uma única rota
+- **Rotas muito longas** e complicadas
+- **Misturar responsabilidades** em uma única rota
 - **⚠️ Ignorar boas práticas** de nomenclatura de recursos
-- **🛑 Usar apenas POST** para todas as operações
+- **Usar apenas POST** para todas as operações
 - **⚠️ Expor detalhes sensíveis** nos nomes das rotas ou respostas
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

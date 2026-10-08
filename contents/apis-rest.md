@@ -1,24 +1,24 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 🌐 APIs REST
+# APIs REST
 
-## 🤔 O que é uma API REST?
+## O que é uma API REST?
 Uma API REST (Representational State Transfer) é um padrão arquitetural que define como os sistemas podem se comunicar de forma padronizada via HTTP. Este modelo utiliza os princípios e protocolos da web para facilitar a integração entre diferentes aplicações.
 
-## 🏗️ Princípios Fundamentais
-- **📊 Recursos**: Tudo é tratado como um recurso, identificado por URIs
-- **🔄 Representações**: Recursos podem ter múltiplas representações (JSON, XML)
-- **📨 Stateless**: Cada requisição contém todas as informações necessárias
-- **🔗 Interface Uniforme**: Uso consistente de HTTP e seus métodos
-- **🔀 Arquitetura em Camadas**: Componentes separados e independentes
+## Princípios Fundamentais
+- **Recursos**: Tudo é tratado como um recurso, identificado por URIs
+- **Representações**: Recursos podem ter múltiplas representações (JSON, XML)
+- **Stateless**: Cada requisição contém todas as informações necessárias
+- **Interface Uniforme**: Uso consistente de HTTP e seus métodos
+- **Arquitetura em Camadas**: Componentes separados e independentes
 
-## ⚙️ Como funciona?
+## Como funciona?
 1. O cliente faz uma **requisição HTTP** para um endpoint da API
 2. O servidor processa a requisição e acessa os dados necessários
 3. O servidor responde com os dados estruturados (geralmente em **JSON**)
 4. O frontend recebe e processa a resposta
 
-## 🛣️ Métodos HTTP e suas aplicações
+## Métodos HTTP e suas aplicações
 
 | Método | Função | Exemplo de uso |
 |--------|--------|----------------|
@@ -28,7 +28,7 @@ Uma API REST (Representational State Transfer) é um padrão arquitetural que de
 | **PATCH** | Atualizar parcialmente | Atualizar apenas o email do usuário |
 | **DELETE** | Remover um recurso | Excluir um usuário |
 
-## 📝 Exemplos de Endpoints
+## Exemplos de Endpoints
 
 ```
 # Usuários
@@ -44,15 +44,15 @@ GET    /api/produtos?categoria=eletronicos   # Lista produtos com filtro
 GET    /api/produtos?ordenar=preco&direcao=asc   # Lista ordenada
 ```
 
-## 📋 Exemplos de Requisições
+## Exemplos de Requisições
 
-### 🔍 GET (Obter todos os usuários)
+### GET (Obter todos os usuários)
 ```http
 GET http://minhaapi.com/api/usuarios
 Accept: application/json
 ```
 
-### 🔍 GET (Obter um usuário específico)
+### GET (Obter um usuário específico)
 ```http
 GET http://minhaapi.com/api/usuarios/1
 Accept: application/json
@@ -70,7 +70,7 @@ Content-Type: application/json
 }
 ```
 
-### 🔄 PUT (Atualizar um usuário)
+### PUT (Atualizar um usuário)
 ```http
 PUT http://minhaapi.com/api/usuarios/1
 Content-Type: application/json
@@ -82,15 +82,15 @@ Content-Type: application/json
 }
 ```
 
-## 🏆 Vantagens das APIs REST
+## Vantagens das APIs REST
 
-- **📱 Multiplataforma**: Pode ser consumida por clientes web, mobile e desktop
-- **🔄 Escalabilidade**: Separação entre cliente e servidor facilita escalabilidade
-- **🔒 Segurança**: Suporta diferentes mecanismos de autenticação e autorização
-- **📦 Formato JSON**: Leve e amplamente compatível para troca de dados
-- **🔄 Cache**: Melhora a performance com recursos de cache HTTP
+- **Multiplataforma**: Pode ser consumida por clientes web, mobile e desktop
+- **Escalabilidade**: Separação entre cliente e servidor facilita escalabilidade
+- **Segurança**: Suporta diferentes mecanismos de autenticação e autorização
+- **Formato JSON**: Leve e amplamente compatível para troca de dados
+- **Cache**: Melhora a performance com recursos de cache HTTP
 
-## 💻 Implementação em Node.js com Express
+## Implementação em Node.js com Express
 
 ```javascript
 const express = require('express');
@@ -132,17 +132,17 @@ app.post('/api/usuarios', (req, res) => {
 app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
 ```
 
-## 📚 Boas Práticas
+## Boas Práticas
 
-- **📄 Documente sua API**: Use ferramentas como Swagger/OpenAPI
-- **🔢 Versione sua API**: Ex: `/api/v1/usuarios`
-- **🧪 Implemente testes**: Garanta que mudanças não quebrem funcionalidades
-- **⏱️ Use limitação de taxa**: Proteja contra abusos com rate limiting
-- **📊 Implemente paginação**: Para grandes conjuntos de dados
-- **🔒 Utilize HTTPS**: Sempre proteja suas comunicações
+- **Documente sua API**: Use ferramentas como Swagger/OpenAPI
+- **Versione sua API**: Ex: `/api/v1/usuarios`
+- **Implemente testes**: Garanta que mudanças não quebrem funcionalidades
+- **Use limitação de taxa**: Proteja contra abusos com rate limiting
+- **Implemente paginação**: Para grandes conjuntos de dados
+- **Utilize HTTPS**: Sempre proteja suas comunicações
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

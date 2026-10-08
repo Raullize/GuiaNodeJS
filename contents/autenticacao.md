@@ -1,21 +1,21 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# 📌 Autenticação e Autorização
+# Autenticação e Autorização
 
-## 🤔 O que é Autenticação e Autorização?
+## O que é Autenticação e Autorização?
 
-### 🔐 Autenticação
+### Autenticação
 **Autenticação** é o processo de verificar a identidade de um usuário, confirmando que ele é quem diz ser. É como verificar um documento de identidade antes de permitir a entrada em um local restrito.
 
-### 🛡️ Autorização
+### Autorização
 **Autorização** ocorre após a autenticação e define o que um usuário autenticado tem permissão para acessar ou fazer no sistema. É como determinar, após verificar sua identidade, quais áreas ou recursos você pode acessar.
 
-## 🔑 Métodos de Autenticação em Node.js
+## Métodos de Autenticação em Node.js
 
-### 📝 Autenticação Baseada em Sessão
+### Autenticação Baseada em Sessão
 Neste método, após a autenticação bem-sucedida, o servidor cria uma sessão para o usuário e armazena os dados da sessão no servidor, enviando apenas um ID de sessão ao cliente via cookie.
 
-#### 🛠️ Implementação com Express-Session
+#### Implementação com Express-Session
 ```bash
 npm install express-session
 ```
@@ -81,10 +81,10 @@ app.listen(3000, () => {
 });
 ```
 
-### 🔖 Autenticação Baseada em Token (JWT)
+### Autenticação Baseada em Token (JWT)
 JSON Web Tokens (JWT) são tokens compactos e autônomos que contêm informações sobre o usuário em formato JSON. Eles são assinados digitalmente, garantindo que as informações não sejam alteradas.
 
-#### 🛠️ Implementação com jsonwebtoken
+#### Implementação com jsonwebtoken
 ```bash
 npm install jsonwebtoken
 ```
@@ -161,7 +161,7 @@ app.listen(3000, () => {
 });
 ```
 
-### 🔄 Refresh Tokens
+### Refresh Tokens
 Refresh Tokens são usados para obter novos tokens de acesso (access tokens) sem a necessidade de fazer login novamente. Eles têm uma vida útil maior que os tokens de acesso.
 
 ```javascript
@@ -230,18 +230,18 @@ app.post('/refresh-token', (req, res) => {
 });
 ```
 
-## 🔐 Autenticação com Passport.js
+## Autenticação com Passport.js
 
 Passport.js é uma middleware de autenticação para Node.js altamente flexível e modular. Ele suporta diversas estratégias de autenticação por meio de plugins.
 
-### 📦 Instalação
+### Instalação
 ```bash
 npm install passport passport-local passport-jwt
 ```
 
-### 🔄 Implementação de Estratégias
+### Implementação de Estratégias
 
-#### 📝 Estratégia Local (usuário e senha)
+#### Estratégia Local (usuário e senha)
 ```javascript
 const express = require('express');
 const passport = require('passport');
@@ -335,7 +335,7 @@ app.listen(3000, () => {
 });
 ```
 
-#### 🔖 Estratégia JWT
+#### Estratégia JWT
 ```javascript
 const express = require('express');
 const passport = require('passport');
@@ -409,7 +409,7 @@ app.listen(3000, () => {
 });
 ```
 
-## 👮 Controle de Acesso Baseado em Funções (RBAC)
+## Controle de Acesso Baseado em Funções (RBAC)
 
 RBAC (Role-Based Access Control) é um sistema onde as permissões são associadas a funções (roles) e os usuários recebem essas funções.
 
@@ -534,16 +534,16 @@ app.listen(3000, () => {
 });
 ```
 
-## 🔐 Autenticação OAuth 2.0
+## Autenticação OAuth 2.0
 
 OAuth 2.0 é um protocolo de autorização que permite que aplicativos obtenham acesso limitado a contas de usuários em serviços como Google, Facebook, GitHub, etc.
 
-### 📦 Instalação
+### Instalação
 ```bash
 npm install passport passport-google-oauth20
 ```
 
-### 🔄 Implementação com Google
+### Implementação com Google
 ```javascript
 const express = require('express');
 const passport = require('passport');
@@ -623,9 +623,9 @@ app.listen(3000, () => {
 });
 ```
 
-## 🛡️ Boas Práticas de Segurança
+## Boas Práticas de Segurança
 
-### 🔒 Armazenamento Seguro de Senhas
+### Armazenamento Seguro de Senhas
 Nunca armazene senhas em texto simples! Use algoritmos de hash como bcrypt.
 
 ```javascript
@@ -664,7 +664,7 @@ async function registrarUsuario(req, res) {
 }
 ```
 
-### 🔄 Rate Limiting
+### Rate Limiting
 Limitar o número de tentativas de login para prevenir ataques de força bruta.
 
 ```javascript
@@ -682,7 +682,7 @@ app.post('/login', loginLimiter, (req, res) => {
 });
 ```
 
-### 🔐 Segredos e Chaves
+### Segredos e Chaves
 Nunca armazene chaves secretas ou credenciais no código-fonte. Use variáveis de ambiente.
 
 ```javascript
@@ -696,7 +696,7 @@ require('dotenv').config();
 const JWT_SECRET = process.env.JWT_SECRET;
 ```
 
-### 📝 Validação de Entrada
+### Validação de Entrada
 Sempre valide e sanitize todas as entradas do usuário.
 
 ```javascript
@@ -720,7 +720,7 @@ app.post('/registrar',
 );
 ```
 
-### 🔒 Proteção CSRF
+### Proteção CSRF
 Para aplicações que usam autenticação baseada em sessão e cookies, implemente proteção CSRF.
 
 ```javascript
@@ -740,11 +740,11 @@ app.use((req, res, next) => {
 // Header: 'X-CSRF-Token': 'token-do-csrf'
 ```
 
-### 🔐 HTTPS
+### HTTPS
 Sempre use HTTPS em produção para proteger a transmissão de dados sensíveis.
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>

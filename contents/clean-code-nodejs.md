@@ -1,10 +1,10 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=header"/>
 
-# ✨ Clean Code em Node.js
+# Clean Code em Node.js
 
 Clean Code (Código Limpo) é um conjunto de práticas e princípios que visam tornar seu código mais legível, manutenível e menos propenso a erros. No contexto do Node.js, essas práticas são especialmente importantes devido à natureza assíncrona e event-driven da plataforma.
 
-## 🤔 Por que código limpo é importante no Node.js?
+## Por que código limpo é importante no Node.js?
 
 Um código Node.js bem escrito:
 - Facilita o gerenciamento de operações assíncronas
@@ -13,9 +13,9 @@ Um código Node.js bem escrito:
 - Facilita a manutenção e debugging
 - Melhora a colaboração entre desenvolvedores
 
-## 📚 Princípios Fundamentais para Node.js
+## Princípios Fundamentais para Node.js
 
-### 1. 🔤 Nomenclatura Clara e Significativa
+### 1. Nomenclatura Clara e Significativa
 
 A nomenclatura é fundamental para a legibilidade do código. No Node.js, é importante usar nomes que revelem claramente a intenção e o propósito de cada componente, especialmente em um ambiente assíncrono onde a clareza é crucial para o entendimento do fluxo de execução.
 
@@ -33,7 +33,7 @@ const userService = require('./userService');
 const helpers = require('./utils/helpers');
 ```
 
-### 2. 🧩 Funções Assíncronas Bem Estruturadas
+### 2. Funções Assíncronas Bem Estruturadas
 
 No Node.js, o gerenciamento de operações assíncronas é crucial. Funções bem estruturadas devem ser pequenas, focadas e seguir um padrão consistente de tratamento de erros. O uso de Promise.all para operações paralelas e try/catch para tratamento de erros são práticas essenciais.
 
@@ -77,7 +77,7 @@ async function getUserStats(userId) {
 }
 ```
 
-### 3. 🧪 Middlewares Limpos e Focados
+### 3. Middlewares Limpos e Focados
 
 Middlewares no Express.js devem ter uma única responsabilidade e serem facilmente testáveis. A separação de preocupações e o tratamento adequado de erros são fundamentais para manter o código limpo e manutenível.
 
@@ -126,7 +126,7 @@ function handleAuthError(res, error) {
 }
 ```
 
-### 4. 🔍 Tratamento de Erros Consistente
+### 4. Tratamento de Erros Consistente
 
 O tratamento de erros em Node.js deve ser consistente e informativo. Um bom tratamento de erros inclui logging adequado, respostas HTTP apropriadas e mensagens claras para o usuário final. O uso de um middleware centralizado de tratamento de erros é uma prática recomendada.
 
@@ -180,7 +180,7 @@ router.post('/users', async (req, res, next) => {
 });
 ```
 
-### 5. 📦 Estrutura de Projeto Organizada
+### 5. Estrutura de Projeto Organizada
 
 Uma estrutura de projeto bem organizada é fundamental para a manutenibilidade e escalabilidade de aplicações Node.js. A separação clara de responsabilidades em diretórios específicos facilita a localização de código, testes e colaboração entre desenvolvedores. Uma estrutura bem definida também ajuda na implementação de novas funcionalidades e na manutenção do código existente.
 
@@ -200,7 +200,7 @@ project/
   └── package.json        # Dependências
 ```
 
-### 6. 🧠 Promises e Async/Await
+### 6. Promises e Async/Await
 
 O uso correto de Promises e Async/Await é crucial para escrever código assíncrono limpo e legível em Node.js. Essas construções ajudam a evitar o "callback hell" e tornam o código mais fácil de entender e manter. O Async/Await, em particular, permite escrever código assíncrono de forma mais síncrona, melhorando significativamente a legibilidade.
 
@@ -234,7 +234,7 @@ async function getUserData(userId) {
 }
 ```
 
-### 7. 📝 Logging Estruturado
+### 7. Logging Estruturado
 
 O logging estruturado é essencial para debugging e monitoramento em produção. Em vez de usar console.log simples, um sistema de logging bem estruturado deve incluir níveis de severidade, contexto e formato consistente para facilitar a análise e busca de logs. Isso é especialmente importante em ambientes de produção onde o diagnóstico de problemas precisa ser rápido e preciso.
 
@@ -260,7 +260,7 @@ logger.error('Falha na autenticação', {
 });
 ```
 
-### 8. 🔐 Segurança e Validação
+### 8. Segurança e Validação
 
 A validação de dados e implementação de medidas de segurança são cruciais em aplicações Node.js. O uso de middlewares de validação, sanitização de dados e boas práticas de segurança devem ser implementados desde o início do desenvolvimento. Isso inclui validação de entrada, proteção contra ataques comuns e implementação adequada de autenticação e autorização.
 
@@ -304,7 +304,7 @@ app.post('/users', validateUser, async (req, res) => {
 });
 ```
 
-## 🛠️ Ferramentas para Manter o Código Limpo
+## Ferramentas para Manter o Código Limpo
 
 O uso de ferramentas adequadas é essencial para manter a qualidade e consistência do código em projetos Node.js. Estas ferramentas ajudam a automatizar processos, garantir padrões de código e identificar problemas antes que eles cheguem à produção.
 
@@ -315,7 +315,7 @@ O uso de ferramentas adequadas é essencial para manter a qualidade e consistên
 5. **SonarQube**: Para análise de qualidade
 6. **TypeScript**: Para tipagem estática
 
-## 📋 Checklist de Clean Code para Node.js
+## Checklist de Clean Code para Node.js
 
 Este checklist serve como um guia prático para garantir que seu código Node.js siga as melhores práticas de clean code. Use-o como referência durante o desenvolvimento e em revisões de código para manter a qualidade do seu projeto.
 
@@ -330,7 +330,7 @@ Este checklist serve como um guia prático para garantir que seu código Node.js
 9. **✅ Use variáveis de ambiente para configurações**
 10. **✅ Implemente testes automatizados**
 
-## 📚 Recursos Adicionais
+## Recursos Adicionais
 
 - [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices)
 - [Clean Code JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
@@ -338,6 +338,6 @@ Este checklist serve como um guia prático para garantir que seu código Node.js
 
 ---
 
-[🔙 Voltar ao índice principal](../README.md)
+[Voltar ao índice principal](../README.md)
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/> 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=339933&height=120&section=footer"/>
